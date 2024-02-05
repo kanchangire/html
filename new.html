@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Epoch Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            margin: 20px;
+        }
+        .year-width
+        {
+            width: 40px;
+        }
+        .month-width
+        {
+            width: 30px;
+        }
+        .day-width
+        {
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Epoch Dates for the Start and End of the Year, Month, and Day</h1>
+        <form>
+            <label for="year">Year:</label>
+            <input type="text" id="year" value="2023" class="year-width">-
+            <label for="month">Month:</label>
+            <input type="text" id="month" value="11" class="month-width">-
+            <label for="day">Day:</label>
+            <input type="text" id="day" value="10" class="day-width">
+            <button type="button" onclick="calculateEpoch()">Convert</button>
+        </form> 
+        <div class="result">
+            <table border="1">
+                <tr>
+                    <td></td>
+                    <td>Epoch</td>
+                    <td>Date and Time</td>
+                </tr>
+                <tr>
+                    <td>Start of day: </td>
+                    <td id="startOfDayEpoch"></td>
+                    <td id="startOfDayDate"></td>
+                </tr>
+                <tr>
+                    <td>End of day:</td>
+                    <td id="endOfDayEpoch"></td>
+                    <td id="endOfDayDate"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <input type="radio" name="same" id="radioo">male
+    <input type="radio" name="same" id="radioo">female
+
+    <script>
+        function calculateEpoch() {
+            const radio = document.getElementById('radioo').value;
+            const year = document.getElementById('year').value;
+            const month = document.getElementById('month').value;
+            const day = document.getElementById('day').value;
+
+            if (year && month && day) {
+                const startOfDayEpoch = new Date(`${year}-${month}-${day}T00:00:00Z`).getTime() / 1000;
+                const endOfDayEpoch = new Date(`${year}-${month}-${day}T23:59:59Z`).getTime() / 1000;
+
+                const startOfDayDate = new Date(startOfDayEpoch * 1000);
+                const endOfDayDate = new Date(endOfDayEpoch * 1000);
+
+                document.getElementById('startOfDayEpoch').textContent = startOfDayEpoch;
+                document.getElementById('endOfDayEpoch').textContent = endOfDayEpoch;
+                document.getElementById('startOfDayDate').textContent = startOfDayDate.toDateString() + " " + startOfDayDate.toTimeString();
+                document.getElementById('endOfDayDate').textContent = endOfDayDate.toDateString() + " " + endOfDayDate.toTimeString();
+            }
+        }
+    </script>
+</body>
+</html>

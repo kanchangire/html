@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Human Date to Timestamp Converter</title>
+    
+    <style>
+        
+.converter {
+    margin: 20px;
+}
+
+.input-container {
+    display: flex;
+    margin-bottom: 10px;
+ 
+}
+
+input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+}
+
+.btn {
+    padding: 5px 10px;
+    background-color: #0074d9;
+    color: white;
+    border: none;
+    cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.result {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.result p {
+    margin: 10px 0;
+}
+.input_contai1
+{
+    margin-right: 20px;
+   
+}
+.input_contai2
+{
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.input_contai3
+{
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.input_contai4  
+{
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.input_contai5
+{
+    margin-left: 24px;
+    margin-right: 20px;
+}
+.input_contai6
+{
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.first
+{
+    background-color: rgb(245, 237, 237);
+    height: 30px;
+    width: 150px;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Human Date to Timestamp Converter</h1>
+               
+                <div class="converter">
+            <div class="input-container">
+            <div class="input_contai1"><label for="year">Yr</label></div> 
+            <div class="input_contai2"><label for="month">Mon</label></div>
+            <div class="input_contai3"><label for="day">Day</label></div>
+            <div class="input_contai4"><label for="hour">Hr</label></div>
+            <div class="input_contai5"><label for="minute">Min</label></div>
+            <div class="input_contai6"><label for="second">Sec</label></div>
+            
+           
+        </div>
+        <div class="input_container2">
+            <input type="text" id="year" placeholder="YYYY" />
+            <input type="text" id="month" placeholder="MM" />
+            <input type="text" id="day" placeholder="DD" />
+            <input type="text" id="hour" placeholder="HH" />
+            <input type="text" id="minute" placeholder="MM" />
+            <input type="text" id="second" placeholder="SS" />
+
+
+            <select name="" id="first">
+            <option value="">GMT</option>
+            <option value="">Local time</option>
+            </select>            
+
+
+        </div>
+        <button class="btn" onclick="convertToDate()">Human date to Timesta</button>
+        <div class="result">
+            <p><b>Epoch timestamp: </b><span id="timestamp"></span></p>
+            <p>Timestamp in milliseconds: <span id="timestampMillis"></span></p>
+            <p>Date and time (GMT): <span id="dateTimeGMT"></span></p>
+            <p><b>Date and time (your time zone):</b> <span id="dateTimeLocal"></span></p>
+        </div>
+    </div>
+    <script>
+
+function convertToDate() {
+    const year = document.getElementById("year").value;
+    const month = document.getElementById("month").value;
+    const day = document.getElementById("day").value;
+    const hour = document.getElementById("hour").value;
+    const minute = document.getElementById("minute").value;
+    const second = document.getElementById("second").value;
+
+    // Convert the date components to a GMT timestamp
+    const dateGMT = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}Z`);
+    const timestamp = dateGMT.getTime() / 1000; // Convert to seconds
+
+    // Display the results
+    document.getElementById("timestamp").textContent = timestamp;
+    document.getElementById("timestampMillis").textContent = timestamp * 1000;
+    document.getElementById("dateTimeGMT").textContent = dateGMT.toUTCString();
+    document.getElementById("dateTimeLocal").textContent = dateGMT.toLocaleString();
+}
+
+
+    </script>
+</body>
+</html>

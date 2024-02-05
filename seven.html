@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .w-epoch-time
+        {
+            color: rgb(96, 96, 182);
+        }
+        .pre-tag
+        {
+            font-size: 15px;
+        }
+        table,th,td
+        {
+            border-collapse: collapse;
+            height: 30px;
+            
+        }
+        .human-readable-time
+        {
+            width: 160px;
+    
+        }
+        .human-readable-seconds, .human-readable-secondss
+        {
+            width: 130px;
+            text-align: end;
+        }
+        .human-readable-times,.human-readable-secondss
+        {
+            background-color: rgb(230, 239, 239);
+           
+        }
+        .emptyy
+        {
+            height: 20px;
+        }
+        .current-epoch-time-w
+        {
+            width: 250px;
+        }
+        .current-epoch-time-w-w
+        {
+            width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="w-epoch-time">What is epoch time?</h1>
+
+    <pre class="pre-tag">The <b>Unix epoch</b> (or <b>Unix time</b> or <b>POSIX time</b> or <b>Unix timestamp</b> ) is the number of seconds that have elapsed since January 1, 1970
+(midnight UTC/GMT), not counting leap seconds (in ISO 8601: 1970-01-01T00:00:00Z). Literally speaking the epoch is Unix time 0 (midnight
+1/1/1970), but 'epoch' is often used as a synonym for Unix time. Some systems store epoch dates as a signed 32-bit integer, which might 
+cause problems on January 19, 2038 (known as the Year 2038 problem or Y2038). The converter on this page converts timestamps in
+seconds (10-digit), milliseconds (13-digit) and microseconds (16-digit) to readable dates.
+    </pre>
+    <table border="1">
+        <tr>
+            <td class="human-readable-times"><b>Human-readable time</b></td>
+            <th class="human-readable-secondss"><b>Seconds</b></th>
+        </tr>
+        <tr>
+            <td class="human-readable-time">1 hour</td>
+            <td class="human-readable-seconds">3600 seconds</td>
+        </tr>
+        <tr>
+            <td class="human-readable-time">1 day</td>
+            <td class="human-readable-seconds">86400 seconds</td>
+        </tr>
+        <tr>
+            <td class="human-readable-time">1 week</td>
+            <td class="human-readable-seconds">604800 seconds</td>
+        </tr>
+        <tr>
+            <td class="human-readable-time">1 month (30.44 days) </td>
+            <td class="human-readable-seconds">2629743 seconds</td>
+        </tr>
+        <tr>
+            <td class="human-readable-time">1 year (365.24 days) </td>
+            <td class="human-readable-seconds">31556926 seconds</td>
+        </tr>
+    </table>
+
+    <div class="emptyy"></div>
+    <h1 class="w-epoch-time">How to get the current epoch time in ...</h1>
+
+    <table>
+        <tr>
+            <td class="current-epoch-time-w">PHP</td>
+            <td class="current-epoch-time-w-w">time() More PHP</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Python</td>
+            <td class="current-epoch-time-w-w">import time; time.time()</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Ruby</td>
+            <td class="current-epoch-time-w-w">Time.now (or Time.new). To display the epoch: Time.now.to_i</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Perl</td>
+            <td class="current-epoch-time-w-w">time More Perl</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Java</td>
+            <td class="current-epoch-time-w-w">long epoch = System.currentTimeMillis()/1000; Returns epoch in seconds.</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">C#</td>
+            <td class="current-epoch-time-w-w">DateTimeOffset.Now.ToUnixTimeSeconds() (.NET Framework 4.6+/.NET Core), older versions: var epoch</td>
+
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w"></td>
+            <td>= (DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds;</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Objective-C</td>
+            <td class="current-epoch-time-w-w">[[NSDate date] timeIntervalSince1970]; (returns double) or NSString *currentTimestamp =</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w"></td>
+            <td class="current-epoch-time-w-w">[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]];</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">C++11</td>
+            <td class="current-epoch-time-w-w">double now = std::chrono::duration_cast < std::chrono::seconds ></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w"></td>
+            <td class="current-epoch-time-w-w">(std::chrono::system_clock::now().time_since_epoch()).count();</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Lua</td>
+            <td class="current-epoch-time-w-w">epoch = os.time([date])</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">VBScript/ASP</td>
+            <td class="current-epoch-time-w-w">See the examples</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">AutoIT</td>
+            <td class="current-epoch-time-w-w">_DateDiff('s', "1970/01/01 00:00:00", _NowCalc())</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Delphi</td>
+            <td class="current-epoch-time-w-w">Epoch := DateTimetoUnix(Now); Tested in Delphi 2010.</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">R</td>
+            <td class="current-epoch-time-w-w">as.numeric(Sys.time())</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Erlang/OTP</td>
+            <td class="current-epoch-time-w-w">erlang:system_time(seconds). (version 18+), older versions:</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w"></td>
+            <td class="current-epoch-time-w-w">calendar:datetime_to_gregorian_seconds(calendar:universal_time())-719528*24*3600.</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">MySQL</td>
+            <td class="current-epoch-time-w-w">SELECT unix_timestamp(now()) More MySQL examples</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">PostgreSQL</td>
+            <td class="current-epoch-time-w-w">SELECT extract(epoch FROM now());</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">SQLite</td>
+            <td class="current-epoch-time-w-w">SELECT strftime('%s', 'now');</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Oracle PL/SQL</td>
+            <td class="current-epoch-time-w-w">SELECT (CAST(SYS_EXTRACT_UTC(SYSTIMESTAMP) AS DATE) -</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w"></td>
+            <td class="current-epoch-time-w-w">TO_DATE('01/01/1970','DD/MM/YYYY')) * 24 * 60 * 60 FROM DUAL;</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">SQL Server</td>
+            <td class="current-epoch-time-w-w">SELECT DATEDIFF(s, '1970-01-01 00:00:00', GETUTCDATE())</td>
+        <tr>
+            <td class="current-epoch-time-w">Visual FoxPro</td>
+            <td class="current-epoch-time-w-w">DATETIME() - {^1970/01/01 00:00:00} Warning: time zones not handled correctly</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Go</td>
+            <td class="current-epoch-time-w-w">time.Now().Unix() More Go </td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Adobe ColdFusion</td>
+            <td class="current-epoch-time-w-w">< cfset epochTime = left(getTickcount(), 10) ></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Tcl/Tk</td>
+            <td class="current-epoch-time-w-w">clock seconds</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Unix/Linux Shell</td>
+            <td class="current-epoch-time-w-w">date +%s</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Solaris</td>
+            <td class="current-epoch-time-w-w">/usr/bin/nawk 'BEGIN {print srand()}' Solaris doesn't support date +%s, but the default seed value for</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w"></td>
+            <td class="current-epoch-time-w-w">nawk's random-number generator is the number of seconds since the epoch.</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">PowerShell</td>
+            <td class="current-epoch-time-w-w">[int][double]::Parse((Get-Date (get-date).touniversaltime() -UFormat %s))</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time-w">Other OS's</td>
+            <td class="current-epoch-time-w-w">Command line: perl -e "print time" (If Perl is installed on your system)</td>
+        </tr>
+    </table>
+
+</body>
+</html>

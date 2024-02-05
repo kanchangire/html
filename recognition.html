@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Speech Recognition and Synthesis</title>
+</head>
+<body>
+  <button onclick="startListening()">Start Listening</button>
+  <p id="spokenText"></p>
+
+  <script>
+    function startListening() {
+      const recognition = new webkitSpeechRecognition() || SpeechRecognition(); // Create a new SpeechRecognition object
+
+      recognition.onresult = function(event) {
+        const spokenText = event.results[0][0].transcript; // Get the recognized speech
+        document.getElementById('spokenText').textContent = spokenText; // Display the recognized speech
+
+        speak(spokenText); // Speak the recognized text
+      };
+
+      recognition.start(); // Start speech recognition
+    }
+
+    function speak(text) {
+      const synthesis = window.speechSynthesis;
+      const utterance = new SpeechSynthesisUtterance(text);
+
+      synthesis.speak(utterance); // Speak the provided text
+    }
+  </script>
+</body>
+</html>

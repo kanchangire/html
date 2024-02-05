@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Epoch Dates</title>
+</head>
+<body>
+  <h1>Epoch Dates</h1>
+  
+  <h2>Start & End of Year, Month, and Day</h2>
+  
+  <div>
+    <label for="yearInput">Year:</label>
+    <input type="number" id="yearInput">
+    <button onclick="showDates()">Show Dates</button>
+  </div>
+  
+  <div id="output"></div>
+
+  <script>
+    function showDates() {
+      const year = document.getElementById('yearInput').value;
+
+      const startOfYear = new Date(year);
+      const endOfYear = new Date(year, 11, 31, 23, 59, 59);
+
+      const startYearFormatted = formatDate(startOfYear);
+      const endYearFormatted = formatDate(endOfYear);
+
+      const output = document.getElementById('output');
+      output.innerHTML = `
+        <h3>Epoch Dates for Year ${year}</h3>
+        <p>Start of year: ${startYearFormatted}</p>
+        <p>End of year: ${endYearFormatted}</p>
+      `;
+    }
+
+    function formatDate(date) {
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        timeZone: 'UTC' // Adjust the timezone as needed
+      };
+
+      return date.toLocaleString('en-US', options);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Speech Recognition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Antonio&family=Monoton&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/33042e1aad.js" crossorigin="anonymous"></script>
+
+  <style>
+    #icon {
+      font-size: 50px;
+
+    }
+  
+
+    .btnn {
+
+      border: 1px solid rgb(233, 223, 223);
+      height: 100px;
+      width: 100px;
+      border-radius: 100px;
+    }
+    .btnn:hover{
+      background-color: aliceblue;
+    }
+  </style>
+</head>
+
+
+
+  <textarea id="output" cols="100" rows="30"></textarea>
+  <button onclick="startSpeechRecognition()" class="btnn"><i class="fa fa-microphone" aria-hidden="true" id="icon"></i></button><br>
+
+  <script>
+    const output = document.getElementById('output');
+
+    function startSpeechRecognition() {
+      const recognition = new window.webkitSpeechRecognition || window.SpeechRecognition();
+
+      recognition.lang = 'en-US'; // Set the language
+
+      recognition.onstart = function () {
+        output.innerHTML = 'Listening.......';
+      };
+
+      recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript;
+        output.innerHTML = `${transcript}`;
+      };
+
+      recognition.onerror = function (event) {
+        output.innerHTML = '';
+      };
+
+      recognition.onend = function () {
+        output.innerHTML += 'listening....';
+      };
+
+      recognition.start();
+    }
+  </script>
+</body>
+
+</html>

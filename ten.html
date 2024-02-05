@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head> 
+<meta charset="UTF-8">
+<meta name="viewport"content="width=device-width, initial-scale=1.0"> 
+<title>Relative Time Display</title>
+</head>
+<body>
+
+  <p id="relative-time-display"></p>
+
+  <script>
+    const referenceDate = new Date('2023-11-08T17:49:29Z'); // Replace with the desired reference date
+    const relativeTimeDisplay = document.getElementById('relative-time-display');
+
+    const updateRelativeTime = () => {
+      const now = new Date();
+      const diff = now.getTime() - referenceDate.getTime();
+      const seconds = Math.floor(diff / 1000);
+      const minutes = Math.floor(seconds / 60);
+      const hours = Math.floor(minutes / 60);
+      const days = Math.floor(hours / 24);
+
+      let relativeTimeText;
+      if (days > 0) {
+        relativeTimeText = `${days} days ago`;
+      } else if (hours > 0) {
+        relativeTimeText = `${hours} hours ago`;
+      } else if (minutes > 0) {
+        relativeTimeText = `${minutes} minutes ago`;
+      } else {
+        relativeTimeText = `${seconds} seconds ago`;
+      }
+
+      relativeTimeDisplay.textContent = relativeTimeText;
+    };
+
+    updateRelativeTime(); // Call the function initially to display the relative time
+    setInterval(updateRelativeTime); // Update the relative time every second
+  </script>
+</body>
+</html>

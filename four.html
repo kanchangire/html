@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #inputDate
+        {
+            height: 30px;
+            width: 400px;
+            font-size: 20px;
+        }
+        #convert-to-timestamp
+        {
+            height: 35px;
+            width: 200px;
+            font-size: 17px;
+            background-color: rgb(251, 250, 208);
+            border: 1px solid rgb(121, 116, 116);
+            border-radius: 4px;
+          
+        }
+        .batch-con
+        {
+            margin-left: 10px;
+            text-decoration: none;
+        }   
+    </style>
+</head>
+<body>
+    <input type="text" id="inputDate" value="Thu, 15 Oct 2023 05:55:26 GMT"></input>
+    <button id="convert-to-timestamp" onclick="convertToTimestamp()">Convert to Timestamp</button><a class="batch-con" href="https://www.epochconverter.com/batch#h2e">[batch convert]</a>
+    <p>Input format: RFC 2822, D-M-Y, M/D/Y, Y-M-D, etc. Strip 'GMT' to convert to local time.</p>
+    <p><b>Epoch timestamp:</b><span id="timestampResult1"></span></p>
+    <p>Timestamp in milliseconds: <span  id="millisecondss"></span></p>
+    <p><b>Date and time (GMT):</b><span id="datetimeGMT"></span></p>
+    <p>Date and time (Your time zone): <span id="datetimeLocal"></span></p>
+
+    <script>
+        function convertToTimestamp() {
+
+            const inputDate = document.getElementById('inputDate').value;
+            const timestampResult = document.getElementById('timestampResult1');
+            const millisecondss = document.getElementById('millisecondss');
+            const datetimeGMT = document.getElementById('datetimeGMT');
+            const datetimeLocal = document.getElementById('datetimeLocal');
+
+            const date = new Date(inputDate);
+
+            if (!isNaN(date)) {
+                
+                timestampResult.textContent = date.getTime()/1000;
+                
+                millisecondss.textContent = date.getTime()*100/100;
+               
+                datetimeGMT.textContent = date.toUTCString();
+                
+                datetimeLocal.textContent = date.toLocaleString();
+            } else {
+                timestampResult.textContent = "Invalid date format";
+                
+                datetimeGMT.textContent = "";
+                
+                datetimeLocal.textContent = "";
+            }
+        }
+    </script>
+</body>
+</html>

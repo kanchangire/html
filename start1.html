@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timestamp Converter</title>
+  <style>
+   
+    #Convert-to-Human-date
+    {
+        background-color: rgb(255, 249, 221);
+        border: 1px solid grey;
+        width: 200px;
+        height: 35px;
+        font-size: 15px;
+        border-radius: 3px;
+        box-shadow: 1px 2px 1px rgb(248, 236, 217);
+
+    }
+    #timestampInput
+    {
+        font-size: 20px;
+        text-align: center;
+        margin-right: 5px;
+        border-radius: 3px;
+        border: 1px solid grey;
+        box-shadow: 1px 1px 1px grey;
+
+    }
+    .converted
+    {
+        display: flex;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="converted">
+        <input type="text" id="timestampInput" value="1700301393">
+    <button onclick="convertToHuman()" id="Convert-to-Human-date">Convert to Human date</button>
+
+    </div>
+        <p>Supports Unix timestamps in seconds, milliseconds, microseconds and nanoseconds.</p>
+    <p>Assuming that this timestamp is in <b>seconds:</b></p>
+  </div>
+
+  <div>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function convertToHuman() {
+      const timestampInput = document.getElementById('timestampInput').value;
+      const date = new Date(parseInt(timestampInput) * 1000); // Convert seconds to milliseconds
+
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZoneName: 'short'
+      };
+
+      const gmtDateTime = date.toGMTString();
+      const localDateTime = date.toLocaleString(undefined, options);
+      const relativeTime = getTimeDifference(date);
+
+      document.getElementById('result').innerHTML = `
+        <b>GMT </b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp :${gmtDateTime}<br>
+        <b>Your time zone</b> &nbsp&nbsp :${localDateTime}<br>
+        <b>Relative</b> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp :${relativeTime}
+      `;
+    }
+
+    function convertToTimestamp() {
+      const humanDateInput = document.getElementById('humanDateInput').value;
+      const date = new Date(humanDateInput);
+
+      const timestamp = Math.floor(date.getTime() / 1000); // Convert milliseconds to seconds
+
+      document.getElementById('result').innerText = `Timestamp: ${timestamp}`;
+    }
+
+    function getTimeDifference(date) {
+      const now = new Date();
+      const diff = now - date;
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+
+      return `${minutes} minutes ago ${years} years ago`;
+    }
+  </script>
+</body>
+</html>

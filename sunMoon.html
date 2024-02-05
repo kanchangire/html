@@ -1,0 +1,52 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .image
+      {
+         height: 30px;
+         width: 30px;
+         float: right;
+      }
+      .images
+      {
+         height: 30px;
+         width: 30px;
+         background-color: white;
+         float: right;
+      }
+    </style>
+ </head>
+ <body>
+    <a id="one" onclick="myfun()"><img src="https://uxwing.com/wp-content/themes/uxwing/download/nature-and-environment/moon-line-icon.png" alt=""  class="image"></a>
+    <a style="display: none;" id="two" onclick="myfun()" ><img src="https://cdn0.iconfinder.com/data/icons/small-nature/50/3_Sep-11-512.png" alt="" class="images"></a>
+    <script>
+           let a= document.getElementById('one')
+       let b= document.getElementById('two');
+
+        let i=0;
+         function myfun()
+         {
+            if(i%2==0)
+            {
+             a.style.display="none";
+             b.style.display="block";
+             document.body.style.background="black";
+             document.body.style.color="white";
+            }
+            else
+            {
+                a.style.display="block";
+                b.style.display="none"
+                document.body.style.background="white";
+             document.body.style.color="black";
+            }
+            i++;
+            console.log(i)
+         }
+    </script>
+ </body>
+ </html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.trending_heading
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 24px;
+}
+.part
+{
+    width: 10%;
+    margin: auto;
+}
+.trending_t-shirts
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 50px;
+    justify-content: center;
+}
+.trending_main
+{
+height: 600px;
+width: 300px;
+box-shadow: 0px 0px 10px grey;
+margin-bottom: 20px;
+}
+.trending_image1
+{
+height: 400px;
+width: 300px;
+background-image: url("https://rukminim2.flixcart.com/image/832/832/kulk9zk0/t-shirt/4/7/y/m-round-neck-front-line-7-highlancetshirt-original-imag7zh7ehu2sjw8.jpeg?q=70");
+background-size: 300px 450px;
+}
+.hovers
+{
+    height: 400px;
+    width: 300px;
+}
+.hovers:hover
+{
+background-color: gray;
+opacity: 0.7;
+}
+.trending_image2
+{
+    height: 400px;
+width: 100%;
+background-image: url("https://images.meesho.com/images/products/141026947/atjyq_512.webp");
+background-size: 300px 450px;
+}
+.trending_image3
+{
+height: 400px;
+width: 100%;
+background-image: url("https://res.cloudinary.com/hiscraves/image/upload/c_fit,q_auto:eco/v1/products/b693ddf1fd3eaabe79ca022084bef492.webp");
+background-size: 300px 450px;
+}
+.trending_image4
+{
+height: 400px;
+width: 100%;
+background-image: url("https://rukminim2.flixcart.com/image/832/832/kzllrbk0/shirt/c/2/s/m-slim-fit-foxter-original-imagbksx7uz8ypuy.jpeg?q=70");
+background-size: 300px 450px;
+}
+.trending_image5
+{
+height: 400px;
+width: 100%;
+background-image: url("https://rukminim2.flixcart.com/image/832/832/kulk9zk0/t-shirt/4/7/y/m-round-neck-front-line-7-highlancetshirt-original-imag7zh7ehu2sjw8.jpeg?q=70");
+background-size: 300px 450px;
+}
+.trending_image6
+{
+height: 400px;
+width: 100%;
+background-image: url("https://images.meesho.com/images/products/141026947/atjyq_512.webp");
+background-size: 300px 450px;
+}
+.trending_image7
+{
+height: 400px;
+width: 100%;
+background-image: url("https://res.cloudinary.com/hiscraves/image/upload/c_fit,q_auto:eco/v1/products/b693ddf1fd3eaabe79ca022084bef492.webp");
+background-size: 300px 450px;
+}
+.trending_image8
+{
+height: 400px;
+width: 100%;
+background-image: url("https://rukminim2.flixcart.com/image/832/832/kzllrbk0/shirt/c/2/s/m-slim-fit-foxter-original-imagbksx7uz8ypuy.jpeg?q=70");
+background-size: 300px 450px;
+}
+.trending_price
+{
+display: flex;
+justify-content: center;
+}
+.trending_main{
+text-align: center;
+}
+h5{
+padding-left: 5px;
+color: rgb(241, 85, 85);
+text-decoration-line: line-through;
+}
+.trending_image_infomation
+{
+margin-top: 20px;
+opacity: 0.7;
+}
+.size
+{
+height: 35px;
+width: 40px;
+margin: 5px;
+border: none;
+background-color: whitesmoke;
+box-shadow: 0px 0px 2px rgb(187, 181, 181);
+}
+.size:hover{
+    background-color: rgb(182, 170, 170);
+    cursor: pointer;
+    color: white;
+}
+.btn
+{
+height: 50px;
+width: 200px;
+color: white;
+background-color: brown;
+}
+.bttn
+{
+text-align: center;
+margin: 20px;
+}
+.lasts
+{
+width: 100%;
+height: 500px;
+}
+@media screen and (min-width: 340px) and (max-width: 767px) {
+.trending_t-shirts
+{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+    justify-content: center;
+}
+.trending_main
+{
+height: 600px;
+width: 300px;
+box-shadow: 0px 0px 10px grey;
+margin-bottom: 20px;
+}
+.lasts
+{
+width: 100%;
+height: 250px;
+}
+}
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+    .trending_t-shirts
+    {
+        display: grid;
+        grid-template-columns: auto auto ;
+        grid-template-rows: auto auto auto auto;
+        justify-content: center;
+    }
+    .trending_main
+    {
+    height: 600px;
+    width: 300px;
+    box-shadow: 0px 0px 10px grey;
+    margin-bottom: 20px;
+    }
+    .lasts
+    {
+    width: 100%;
+    }
+    }
+    </style>
+</head>
+<body>
+<div class="trending_heading">
+    <div class="part"><hr></div>
+    <h1>Trending T-Shirts</h1>
+    <div class="part"><hr></div>
+</div>
+<div class="trending_t-shirts">
+    <div class="trending_main">
+        <div class="trending_image1">
+            <div class="hovers"></div>
+        </div>
+        <div class="trending_image_infomation">Men Henley Neck <br>Full Sleeve Red Wine </div>
+        <div class="trending_price">
+            <h3>₹399</h3>
+            <h5 id="Rs_small" >₹1200</h5>
+        </div>
+        <div class="children">
+            <button class="size">S</button><button class="size">M</button><button class="size">L</button><button class="size">XL</button><button class="size">XXL</button></div>
+    </div>
+    <div class="trending_main">
+        <div class="trending_image2">
+            <div class="hovers"></div>
+        </div>
+        <div class="trending_image_infomation">Men Henley Neck <br>Full Sleeve Red Wine </div>
+        <div class="trending_price">
+            <h3>₹399</h3>
+            <h5>₹1200</h5>
+        </div>
+        <div class="children">
+            <button class="size">S</button><button class="size">M</button><button class="size">L</button><button class="size">XL</button><button class="size">XXL</button> </div>
+    </div>
+    <div class="trending_main">
+        <div class="trending_image3">
+            <div class="hovers"></div>
+        </div>
+        <div class="trending_image_infomation">Men Henley Neck <br>Full Sleeve Red Wine </div>
+        <div class="trending_price">
+            <h3>₹399</h3>
+            <h5>₹1200</h5>
+        </div>
+        <div class="children">
+            <button class="size">S</button><button class="size">M</button><button class="size">L</button><button class="size">XL</button><button class="size">XXL</button> </div>
+    </div>
+    <div class="trending_main">
+        <div class="trending_image4">
+            <div class="hovers"></div>
+        </div>
+        <div class="trending_image_infomation">Men Henley Neck <br>Full Sleeve Red Wine </div>
+        <div class="trending_price">
+            <h3>₹399</h3>
+            <h5>₹1200</h5>
+        </div>
+        <div class="children">
+            <button class="size">S</button><button class="size">M</button><button class="size">L</button><button class="size">XL</button><button class="size">XXL</button></div>
+    </div>
+    <div class="trending_main">
+        <div class="trending_image5">
+            <div class="hovers"></div>
+        </div>
+        <div class="trending_image_infomation">Men Henley Neck <br>Full Sleeve Red Wine </div>
+        <div class="trending_price">
+            <h3>₹399</h3>
+            <h5>₹1200</h5>
+        </div>
+        <div class="children">
+            <button class="size">S</button><button class="size">M</button><button class="size">L</button><button class="size">XL</button><button class="size">XXL</button></div>
+    </div>
+    <div class="trending_main">
+        <div class="trending_image6">
+            <div class="hovers"></div>
+        </div>
+        <div class="trending_image_infomation">Men Henley Neck <br>Full Sleeve Red Wine </div>
+        <div class="trending_price">
+            <h3>₹399</h3>
+            <h5>₹1200</h5>
+        </div>
+        <div class="children">
+            <button class="size">S</button><button class="size">M</button><button class="size">L</button><button class="size">XL</button><button class="size">XXL</button></div>
+    </div>
+    <div class="trending_main">
+        <div class="trending_image7">
+            <div class="hovers"></div>
+        </div>
+        <div class="trending_image_infomation">Men Henley Neck <br>Full Sleeve Red Wine </div>
+        <div class="trending_price">
+            <h3>₹399</h3>
+            <h5>₹1200</h5>
+        </div>
+        <div class="children">
+            <button class="size">S</button><button class="size">M</button><button class="size">L</button><button class="size">XL</button><button class="size">XXL</button></div>
+    </div>
+    <div class="trending_main">
+        <div class="trending_image8">
+            <div class="hovers"></div>
+        </div>
+        <div class="trending_image_infomation">Men Henley Neck <br>Full Sleeve Red Wine </div>
+        <div class="trending_price">
+            <h3>₹399</h3>
+            <h5>₹1200</h5>
+        </div>
+        <div class="children">
+            <button class="size">S</button><button class="size">M</button><button class="size">L</button><button class="size">XL</button><button class="size">XXL</button></div>
+    </div>
+</div>
+<div class="bttn"><button class="btn">VIEW ALL</button></div>
+<div class="main">
+    <div class="part"><hr></div>
+    <h1>Trending T-Shirts</h1>
+    <div class="part"><hr></div>
+</div>
+<div class="trending_t-shirts">
+    <div class="trending_main">
+        <div class="trending_image1">
+            <div class="a"></div>
+        </div>
+        <div class="trending_image_infomation">Men Henley Neck <br>Full Sleeve Red Wine </div>
+        <div class="trending_price">
+            <h3>₹399</h3>
+            <h5>₹1200</h5>
+        </div>
+        <div class="children">
+            <button class="size">S</button><button class="size">M</button><button class="size">L</button><button class="size">XL</button><button class="size">XXL</button></div>
+    </div>
+    <div class="trending_main">
+        <div class="trending_image2"></div>
+        <div class="trending_image_infomation">Men Henley Neck <br>Full Sleeve Red Wine </div>
+        <div class="trending_price">
+            <h3>₹399</h3>
+            <h5>₹1200</h5>
+        </div>
+        <div class="children">
+            <button class="size">S</button><button class="size">M</button><button class="size">L</button><button class="size">XL</button><button class="size">XXL</button> </div>
+    </div>
+    <div class="trending_main">
+        <div class="trending_image3"></div>
+        <div class="trending_image_infomation">Men Henley Neck <br>Full Sleeve Red Wine </div>
+        <div class="trending_price">
+            <h3>₹399</h3>
+            <h5>₹1200</h5>
+        </div>
+        <div class="children">
+            <button class="size">S</button><button class="size">M</button><button class="size">L</button><button class="size">XL</button><button class="size">XXL</button></div>
+    </div>
+    <div class="trending_main">
+        <div class="trending_image4"></div>
+        <div class="trending_image_infomation">Men Henley Neck <br>Full Sleeve Red Wine </div>
+        <div class="trending_price">
+            <h3>₹399</h3>
+            <h5>₹1200</h5>
+        </div>
+        <div class="children">
+            <button class="size">S</button><button class="size">M</button><button class="size">L</button><button class="size">XL</button><button class="size">XXL</button></div>
+    </div>
+</div>
+<div class="bttn">
+    <button class="btn">VIEW ALL</button>
+</div>
+<div class="last">
+    <img class="lasts" src="image.jpg" alt="">
+</div>
+</body>
+</html>

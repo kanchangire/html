@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Epoch Dates</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Epoch Dates</h1>
+
+  <h2>Show start & end of year month day</h2>
+  <table>
+    <tr>
+      <th>Year</th>
+      <th>Month</th>
+      <th>Day</th>
+      <th>GMT</th>
+    </tr>
+    <tr>
+      <td id="year">2023</td>
+      <td id="month">11</td>
+      <td id="day">18</td>
+      <td id="gmt"></td>
+    </tr>
+  </table>
+
+  <h2>Convert [list months & years]</h2>
+  <table>
+    <tr>
+      <th>Epoch</th>
+      <th>Date and time</th>
+    </tr>
+    <tr>
+      <td id="startOfMonth"></td>
+      <td id="endOfMonth"></td>
+    </tr>
+  </table>
+
+  <script>
+    function showStartEndDates(year, month, day) {
+      const startOfMonth = new Date(year, month - 1, 1);
+      const endOfMonth = new Date(year, month, 0, 23, 59, 59);
+
+      document.getElementById('year').innerText = year;
+      document.getElementById('month').innerText = month;
+      document.getElementById('day').innerText = day;
+
+      document.getElementById('gmt').innerText = startOfMonth.toUTCString();
+
+      document.getElementById('startOfMonth').innerText = Math.floor(startOfMonth.getTime() / 1000);
+      document.getElementById('endOfMonth').innerText = Math.floor(endOfMonth.getTime() / 1000) - 1; // Adjusted for 11:59:59 PM
+    }
+
+    showStartEndDates(2023, 11, 18); // Change the values to desired year, month, and day
+  </script>
+</body>
+</html>

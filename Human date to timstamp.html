@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>doucument</title>
+<style>
+    
+body {
+  font-family: Arial, sans-serif;
+}
+.container {
+  width: 100%;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+#result {
+  margin-top: 10px;
+
+}
+#epochInput
+{
+    width: 200px;
+    font-size: 20px;
+    height: 15px;
+}
+#convertButton
+{
+    width: 225px;
+    height: 40px;
+    margin-top: 9px;
+    margin-left: 5px;
+    font-size: 15px;
+}
+.time
+{
+    display: flex;
+}
+#human-date-output
+{
+    width: 200px;
+    height: 10px;
+    border: none;
+    font-size: 17px;
+}
+#human-date-output 
+{
+    margin-top: 0px;
+}
+#time-zone
+{
+    margin-top: 0px;
+}
+
+</style>
+</head>
+
+<body>
+
+   <div class="container">
+
+    <div class="time">
+        <input type="text" id="epochInput" value="1699428269">
+        <button id="convertButton">Timestamp to Human date</button>
+    </div>
+    <p>Supports Unix timestamps in seconds, milliseconds, microseconds and nanoseconds.</p>
+    <p id="second">Assuming that this timestamp is in <b>seconds:</b></p>
+
+    <p id="result"><b>GMT</b></p>
+    <label for="human-date-output" id="time-zone"><b>your time zone</b></label>
+    <input type="text" id="human-date-output">
+  </div>
+   
+  
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const epochInput = document.getElementById('epochInput');
+  const convertButton = document.getElementById('convertButton');
+  const result = document.getElementById('result');
+  const humanDateOutput = document.getElementById('human-date-output');
+ 
+  convertButton.addEventListener('click', function() {
+    const epochValue = parseInt(epochInput.value, 10);
+    if (!isNaN(epochValue)) {
+      const date = new Date(epochValue * 1000); // Convert seconds to milliseconds
+      const dateString = date.toGMTString();
+      result.textContent = `GMT: ${dateString}`;
+      
+    } 
+    else  if (isNaN(epochValue)) {
+        alert('Please enter a valid epoch timestamp.');
+        return;
+      }
+    else {
+      result.textContent = 'Invalid input. Please enter a valid epoch timestamp.';
+    }
+    const humanReadableDate = convertEpochToHumanDate(epochValue);
+      humanDateOutput.value = humanReadableDate;
+  });
+  function convertEpochToHumanDate(epochTimestamp) {
+      const date = new Date(epochTimestamp * 1000);
+      const options = {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+      };
+      return date.toLocaleDateString('en', options);
+    }
+});
+  </script> 
+
+</body>
+
+</html>
+
+
+
+
+  
+    
+

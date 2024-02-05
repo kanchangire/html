@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>last-footer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio&family=Monoton&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/33042e1aad.js" crossorigin="anonymous"></script>
+    <style>
+        .heading-one
+        {
+            color: rgb(144, 154, 213);
+        }
+        .heading-two
+        {
+            color: rgb(129, 136, 181);
+        }
+        .heading-third
+        {
+            color: rgb(118, 127, 184);
+        }
+        .heading-forth
+        {
+            color: rgb(102, 111, 164);
+        }
+        .paragraph-epoch
+        {
+            font-size: 15px;
+        }
+        table,tr,td{
+
+            border-collapse: collapse;
+            height: 30px;
+        }
+        .column-1 
+        {
+            width: 180px;
+        }
+        .column-2
+        {
+            width: 140px;
+            text-align: end;
+        }
+        #back-color
+        {
+            background-color: #f3eeee;
+        }
+        mark
+        {
+            background-color: rgb(225, 235, 235);
+        }
+        .current-epoch-time
+        {
+            width: 300px;
+        }
+        .link
+        {
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .links
+        {
+           text-decoration: none;
+           color: black;
+
+        }
+        .icon
+        {
+            color: black;
+        }
+        .human-readable-date-to-epoch
+        {
+            font-size: 15px;
+            width: 300px;
+        }
+        .human-readable-date-to-epochs
+        {
+            font-size: 15px;
+        }
+        i{
+            color: black;
+        }
+       
+        .epoch-to-human-readable-date
+        {
+            width: 300px;
+            font-size: 15px;
+        }
+        .epoch-to-human-readable-dates
+        {
+            font-size: 15px;
+        }
+        .border-none
+        {
+            border: none;
+            background-color: rgb(243, 242, 242);
+        }
+        .footer
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading-one">What is epoch time?</h1>
+
+    <pre class="paragraph-epoch">
+The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds that have elapsed since January 1, 1970
+(midnight UTC/GMT), not counting leap seconds (in ISO 8601: 1970-01-01T00:00:00Z). Literally speaking the epoch is Unix time 0 (midnight
+1/1/1970), but 'epoch' is often used as a synonym for Unix time. Some systems store epoch dates as a signed 32-bit integer, which might
+cause problems on January 19, 2038 (known as the Year 2038 problem or Y2038). The converter on this page converts timestamps in
+seconds (10-digit), milliseconds (13-digit) and microseconds (16-digit) to readable dates.
+    </pre>
+
+    <table border="1">
+        <tr>
+            <td class="column-1" id="back-color"><b>Human-readable time</b></td>
+            <td class="column-2" id="back-color"><b>Seconds</b></td>
+        </tr>
+        <tr>
+            <td class="column-1">1 hour</td>
+            <td class="column-2">3600 seconds</td>
+        </tr>
+        <tr>
+            <td class="column-1">1 day</td>
+            <td class="column-2">86400 seconds</td>
+        </tr>
+        <tr>
+            <td class="column-1">1 week</td>
+            <td class="column-2">604800 seconds</td>
+        </tr>
+        <tr>
+            <td class="column-1">1 month (30.44 days)</td>
+            <td class="column-2">2629743 seconds</td>
+        </tr>
+        <tr>
+            <td class="column-1">1 year (365.24 days)</td>
+            <td class="column-2">31556926 seconds</td>
+        </tr>
+    </table>
+    <h1 class="heading-two">How to get the current epoch time in ...</h1>
+
+    <pre  class="paragraph-epoch">
+    <table>
+        <tr>
+            <td class="current-epoch-time">PHP</td>
+            <td><mark>time()</mark><a href="https://www.epochconverter.com/programming/php" class="link"> More PHP</a></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Python</td>
+            <td><mark>import time; time.time()</mark> <a href="" class="icon"><i class="fa fa-check-square-o" aria-hidden="true"></i></a></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Ruby</td>
+            <td><mark>Time.now</mark> (or <mark>Time.new</mark>). To display the epoch: <mark>Time.now.to_i</mark>></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Perl</td>
+            <td><mark>time</mark><a href="https://www.epochconverter.com/programming/perl" class="link"> More Perl</a></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Java</td>
+            <td><mark>long epoch = System.currentTimeMillis()/1000;</mark> Returns epoch in seconds.</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">C#</td>
+            <td><mark>DateTimeOffset.Now.ToUnixTimeSeconds()</mark> (.NET Framework 4.6+/.NET Core), older versions: <mark>var epoch</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time"></td>
+            <td><mark>=(DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds;</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Objective-C</td>
+            <td><mark>[[NSDate date] timeIntervalSince1970];</mark> (returns double) or <mark>NSString *currentTimestamp =</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time"></td>
+            <td><mark>[NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]];</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">C++11</td>
+            <td><mark>double now = std::chrono::duration_cast< std::chrono::seconds></mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time"></td>
+            <td><mark>(std::chrono::system_clock::now().time_since_epoch()).count();</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Lua</td>
+            <td><mark>epoch = os.time([date])</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">VBScript/ASP</td>
+            <td><a href="https://www.epochconverter.com/programming/#asp" class="link">See the examples</a></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">AutoIT</td>
+            <td><mark>_DateDiff('s', "1970/01/01 00:00:00", _NowCalc())</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Delphi</td>
+            <td><mark>Epoch := DateTimetoUnix(Now);</mark> Tested in Delphi 2010.</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">R</td>
+            <td><mark>as.numeric(Sys.time())</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Erlang/OTP</td>
+            <td><mark>erlang:system_time(seconds).</mark> (version 18+), older versions:</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time"></td>
+            <td><mark>calendar:datetime_to_gregorian_seconds(calendar:universal_time())-719528*24*3600.</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">MySQL</td>
+            <td><mark>SELECT unix_timestamp(now())</mark> <a href="https://www.epochconverter.com/programming/mysql" class="link">More MySQL examples</a></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">PostgreSQL</td>
+            <td><mark>SELECT extract(epoch FROM now());</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">SQLite</td>
+            <td><mark>SELECT strftime('%s', 'now');</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Oracle PL/SQL</td>
+            <td><mark>SELECT (CAST(SYS_EXTRACT_UTC(SYSTIMESTAMP) AS DATE) -</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time"></td>
+            <td><mark>TO_DATE('01/01/1970','DD/MM/YYYY')) * 24 * 60 * 60 FROM DUAL;</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">SQL Server</td>
+            <td><mark>SELECT DATEDIFF(s, '1970-01-01 00:00:00', GETUTCDATE())</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">IBM Informix</td>
+            <td><mark>SELECT dbinfo('utc_current') FROM sysmaster:sysdual;</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">JavaScript</td>
+            <td><mark>Math.floor(new Date().getTime()/1000.0)</mark> The getTime method returns the time in milliseconds.</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Visual FoxPro</td>
+            <td><mark>DATETIME() - {^1970/01/01 00:00:00}</mark> Warning: time zones not handled correctly</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Go</td>
+            <td><mark>time.Now().Unix()</mark> <a href="https://go.dev/play/p/6h0A0WPxtq" class="link">More Go <a href="" class="icon"><i class="fa fa-check-square-o" aria-hidden="true"></i></a></a></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Adobe ColdFusion</td>
+            <td><mark>< cfset epochTime = left(getTickcount(), 10)</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Tcl/Tk</td>
+            <td><mark>clock seconds</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Unix/Linux Shell</td>
+            <td><mark>date +%s</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Solaris</td>
+            <td><mark>/usr/bin/nawk 'BEGIN {print srand()}'</mark> Solaris doesn't support date +%s, but the default seed value for</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time"></td>
+            <td>nawk's random-number generator is the number of seconds since the epoch.</td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">PowerShell</td>
+            <td><mark>[int][double]::Parse((Get-Date (get-date).touniversaltime() -UFormat %s))</mark></td>
+        </tr>
+        <tr>
+            <td class="current-epoch-time">Other OS's</td>
+            <td>Command line: <mark>perl -e "print time"</mark> (If Perl is installed on your system)</td>
+        </tr>
+    </table>
+</pre>
+
+
+<h1 class="heading-third">Convert from human-readable date to epoch</h1>
+    <pre>
+        <table>
+            <tr>
+                <td class="human-readable-date-to-epoch">PHP</td>
+                <td class="human-readable-date-to-epochs"><mark>strtotime("15 November 2018")</mark> (converts most English date texts) or:</td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch"></td>
+                <td class="human-readable-date-to-epochs"><mark>date_create('11/15/2018')->format('U')</mark> (using DateTime class) <a href="https://www.epochconverter.com/programming/php#date2epoch" class="link">More PHP</a></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">Python</td>
+                <td class="human-readable-date-to-epochs"><mark>import calendar, time; calendar.timegm(time.strptime('2000-01-01 12:34:00', '%Y-%m-%d</mark></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch"></td>
+                <td class="human-readable-date-to-epochs"><mark>%H:%M:%S'))</mark></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">Ruby</td>
+                <td class="human-readable-date-to-epochs"><mark>Time.local(year, month, day, hour, minute, second, usec )</mark> (or <mark>Time.gm</mark> for GMT/UTC input). To</td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch"></td>
+                <td class="human-readable-date-to-epochs">display add <mark>.to_i</mark></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">Perl</td>
+                <td class="human-readable-date-to-epochs">Use the <a href="https://www.epochconverter.com/programming/perl" class="link" >Perl Epoch routines</a></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">Java</td>
+                <td class="human-readable-date-to-epochs"><mark>long epoch = new java.text.SimpleDateFormat("MM/dd/yyyy HH:mm:ss").parse("01/01/1970</mark></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch"></td>
+                <td class="human-readable-date-to-epochs"><mark>01:00:00").getTime() / 1000;</mark> Timestamp in seconds, remove '/1000' for milliseconds.</td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">VBScript/ASP</td>
+                <td class="human-readable-date-to-epochs"><mark>DateDiff("s", "01/01/1970 00:00:00", time field)</mark> <a href="https://www.epochconverter.com/programming/#asp" class="link" >More ASP</a></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">AutoIT</td>
+                <td class="human-readable-date-to-epochs"><mark>_DateDiff('s', "1970/01/01 00:00:00", "YYYY/MM/DD HH:MM:SS")</mark></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">Delphi</td>
+                <td class="human-readable-date-to-epochs"><mark>Epoch := DateTimeToUnix(StrToDateTime(myString));</mark></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">C</td>
+                <td class="human-readable-date-to-epochs">Use the <a href="https://www.epochconverter.com/programming/c" class="link">C Epoch Converter routines</a></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">R</td>
+                <td class="human-readable-date-to-epochs"><mark>as.numeric(as.POSIXct("YYYY-MM-dd HH:mm:ss", tz = "GMT", origin="1970-01-01"))</mark> The origin</td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch"></td>
+                <td class="human-readable-date-to-epochs">parameter is optional</td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">Go</td>
+                <td class="human-readable-date-to-epochs"><a href="https://go.dev/play/p/6h0A0WPxtq" class="link">Example code <i class="fa fa-check-square-o" aria-hidden="true"></i></a></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">Rust</td>
+                <td class="human-readable-date-to-epochs"><mark>SystemTime::now().duration_since(SystemTime::UNIX_EPOCH) </mark><a href="https://doc.rust-lang.org/std/time/struct.SystemTime.html" class="link"> <i class="fa fa-check-square-o" aria-hidden="true"></i></a></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">Adobe ColdFusion</td>
+                <td class="human-readable-date-to-epochs"><mark>int(parseDateTime(datetime).getTime()/1000);</mark></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">MySQL</td>
+                <td class="human-readable-date-to-epochs"><mark>SELECT unix_timestamp(time)</mark> Time format: YYYY-MM-DD HH:MM:SS or YYMMDD or YYYYMMDD</td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch"></td>
+                <td class="human-readable-date-to-epochs"><a href="https://www.epochconverter.com/programming/mysql" class="link">More on using Epoch timestamps with MySQL</a></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">PostgreSQL</td>
+                <td class="human-readable-date-to-epochs"><mark>SELECT extract(epoch FROM date('2000-01-01 12:34'));</mark></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch"></td>
+                <td class="human-readable-date-to-epochs">With timestamp: <mark>SELECT EXTRACT(EPOCH FROM TIMESTAMP WITH TIME ZONE '2018-02-16 20:38:40-</mark></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch"></td>
+                <td class="human-readable-date-to-epochs"><mark>08');</mark></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch"></td>
+                <td class="human-readable-date-to-epochs">With interval: <mark>SELECT EXTRACT(EPOCH FROM INTERVAL '5 days 3 hours');</mark></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">SQLite</td>
+                <td class="human-readable-date-to-epochs"><mark>SELECT strftime('%s',timestring);</mark></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">SQL Server</td>
+                <td class="human-readable-date-to-epochs"><mark>SELECT DATEDIFF(s, '1970-01-01 00:00:00', time field)</mark></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">JavaScript</td>
+                <td class="human-readable-date-to-epochs">Use the <a href="https://www.epochconverter.com/programming/#javascript" class="link">JavaScript Date object</a></td>
+            </tr>
+            <tr>
+                <td class="human-readable-date-to-epoch">Unix/Linux Shell</td>
+                <td class="human-readable-date-to-epochs"><mark>date +%s -d"Jan 1, 1980 00:00:01"</mark> Replace '-d' with '-ud' to input in GMT/UTC time.</td>
+            </tr>
+
+        </table>
+    </pre>
+
+    <h1 class="heading-forth">Convert from epoch to human-readable date</h1>
+    <pre>
+        <table>
+            <tr>
+                <td class="epoch-to-human-readable-date">PHP</td>
+                <td class="epoch-to-human-readable-dates"><mark>date(output format, epoch);</mark> Output format example: 'r' = RFC 2822 date, more PHP examples</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Python</td>
+                <td class="epoch-to-human-readable-dates"><mark>import time; time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(epoch))</mark> Replace</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates">time.localtime with time.gmtime for GMT time. Or using datetime: <mark>import datetime;</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates"><mark>datetime.datetime.utcfromtimestamp(epoch).replace(tzinfo=datetime.timezone.utc)</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Ruby</td>
+                <td class="epoch-to-human-readable-dates"><mark>Time.at(epoch)</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">C#</td>
+                <td class="epoch-to-human-readable-dates"><mark>private string epoch2string(int epoch) {</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates"><mark>return new DateTime(1970, 1, 1, 0, 0, 0,</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates"><mark>DateTimeKind.Utc).AddSeconds(epoch).ToShortDateString(); }</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Perl</td>
+                <td class="epoch-to-human-readable-dates">Use the Perl Epoch routines</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Java</td>
+                <td class="epoch-to-human-readable-dates"><mark>String date = new java.text.SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(new</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates"><mark>java.util.Date (epoch*1000));</mark> Epoch in seconds, remove '*1000' for milliseconds.</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Lua</td>
+                <td class="epoch-to-human-readable-dates"><mark>datestring = os.date([format[,epoch]]) </mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">VBScript/ASP</td>
+                <td class="epoch-to-human-readable-dates"><mark>DateAdd("s", epoch, "01/01/1970 00:00:00")</mark> More ASP</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">AutoIT</td>
+                <td class="epoch-to-human-readable-dates"><mark>_DateAdd("s", $EpochSeconds , "1970/01/01 00:00:00")</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Delphi</td>
+                <td class="epoch-to-human-readable-dates"><mark>myString := DateTimeToStr(UnixToDateTime(Epoch));</mark> Where Epoch is a signed integer.</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">C</td>
+                <td class="epoch-to-human-readable-dates">Use the C Epoch Converter routines</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Objective-C</td>
+                <td class="epoch-to-human-readable-dates"><mark>NSDate * myDate = [NSDate dateWithTimeIntervalSince1970:epoch]; NSLog(@"%@", date);</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">R</td>
+                <td class="epoch-to-human-readable-dates"><mark>as.POSIXct(epoch, origin="1970-01-01", tz="GMT")</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Go</td>
+                <td class="epoch-to-human-readable-dates">Example code </td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Adobe ColdFusion</td>
+                <td class="epoch-to-human-readable-dates"><mark>DateAdd("s",epoch,"1/1/1970");</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">MySQL</td>
+                <td class="epoch-to-human-readable-dates"><mark>FROM_UNIXTIME(epoch, optional output format)</mark> Default output format is YYY-MM-DD HH:MM:SS. If you</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates">need support for negative timestamps: <mark>DATE_FORMAT(DATE_ADD(FROM_UNIXTIME(0), interval</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates"><mark>-315619200 second),"%Y-%m-%d")</mark> (replace -315619200 with epoch) More MySQL</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">PostgreSQL</td>
+                <td class="epoch-to-human-readable-dates">PostgreSQL version 8.1 and higher: <mark>SELECT to_timestamp(epoch);</mark> Source Older versions: SELECT TIMESTAMP</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates"><mark>WITH TIME ZONE 'epoch' + epoch * INTERVAL '1 second';</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">SQLite</td>
+                <td class="epoch-to-human-readable-dates"><mark>SELECT datetime(epoch_to_convert, 'unixepoch');</mark> or local timezone: SELECT</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates"><mark>datetime(epoch_to_convert, 'unixepoch', 'localtime');</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Oracle PL/SQL</td>
+                <td class="epoch-to-human-readable-dates"><mark>SELECT to_date('01-JAN-1970','dd-mon-yyyy')+(1526357743/60/60/24) from dual</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates">Replace 1526357743 with epoch.</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">SQL Server</td>
+                <td class="epoch-to-human-readable-dates"><mark>DATEADD(s, epoch, '1970-01-01 00:00:00')</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">IBM Informix</td>
+                <td class="epoch-to-human-readable-dates"><mark>SELECT dbinfo('utc_to_datetime',epoch) FROM sysmaster:sysdual;</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Microsoft Excel /</td>
+                <td class="epoch-to-human-readable-dates">=<mark>(A1 / 86400) + 25569</mark> Format the result cell for date/time, the result will be in GMT time (A1 is the cell with</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">LibreOffice Calc</td>
+                <td class="epoch-to-human-readable-dates">the epoch number). For other time zones: =((A1 +/- time zone adjustment) / 86400) + 25569.</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Crystal Reports</td>
+                <td class="epoch-to-human-readable-dates"><mark>DateAdd("s", {EpochTimeStampField}-14400, #1/1/1970 00:00:00#)</mark> -14400 used for Eastern</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates">Standard Time. See Time Zones.</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">JavaScript</td>
+                <td class="epoch-to-human-readable-dates">Use the JavaScript Date object</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Tcl/Tk</td>
+                <td class="epoch-to-human-readable-dates"><mark>clock format 1325376000 </mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">MATLAB</td>
+                <td class="epoch-to-human-readable-dates"><mark>datestr(719529+TimeInSeconds/86400,'dd-mmm-yyyy HH:MM:SS')</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">IBM PureData System</td>
+                <td class="epoch-to-human-readable-dates"><mark>select 996673954::int4::abstime::timestamp;</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">for Analytics</td>
+                <td class="epoch-to-human-readable-dates"></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Unix/Linux Shell</td>
+                <td class="epoch-to-human-readable-dates"><mark>date -d @1520000000</mark> Replace 1520000000 with your epoch, needs recent version of 'date'. Replace '-d' with '-</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates">ud' for GMT/UTC time.</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Mac OS X</td>
+                <td class="epoch-to-human-readable-dates"><mark>date -j -r 1520000000</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">PowerShell</td>
+                <td class="epoch-to-human-readable-dates"><mark>Function get-epochDate ($epochDate) {</mark></td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates"><mark>[timezone]::CurrentTimeZone.ToLocalTime(([datetime]'1/1/1970')</mark>.AddSeconds($epochDate))</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates"><mark>}</mark>, then use: <mark>get-epochDate 1520000000.</mark> Works for Windows PowerShell v1 and v2</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date">Other OS's</td>
+                <td class="epoch-to-human-readable-dates">Command line: <mark>perl -e "print scalar(localtime(epoch))"</mark> (If Perl is installed) Replace 'localtime' with</td>
+            </tr>
+            <tr>
+                <td class="epoch-to-human-readable-date"></td>
+                <td class="epoch-to-human-readable-dates">'gmtime' for GMT/UTC time.</td>
+            </tr>
+            
+        </table>
+    </pre>
+    <p>Thanks to everyone who sent me corrections and updates!</p><br>
+    <p>More date related programming examples: <button class="border-none"><a href="https://www.epochconverter.com/weeknumbers" class="link">What's the current week number?</a></button> - <button class="border-none"><a href="https://www.epochconverter.com/daynumbers" class="link">What's the current day number?</a></button></p><br>
+    <p>Please note: All tools on this page are based on the date & time settings of your computer and use JavaScript to convert times. Some browsers</p>
+    <p>use the current DST (Daylight Saving Time) rules for all dates in history. JavaScript does not support <button class="border-none"><a href="https://en.wikipedia.org/wiki/Leap_second" class="link">leap seconds.</a></button></p><br><br>
+
+    <p class="footer"><a href="#" class="link">Home - Sitemap - Privacy - Disclaimer - Contact -</a> <i class="fa fa-twitter" aria-hidden="true"></i> - <i class="fa fa-facebook" aria-hidden="true"></i>
+    </p>
+    <p class="footer">© 2023 Epoch Converter by <a href="https://misja.com/" class="links">Misja.com</a></p>
+</body>
+</html>

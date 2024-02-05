@@ -1,0 +1,127 @@
+<style>
+    html, body {margin:0px; padding: 0px;}
+
+nav {
+    background-color: #34495e;
+    height: 80px;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    z-index: 999;
+}
+
+#logo {height: 80px; margin-left: 20px;}
+
+.wrapper {
+    padding: 50px 50px;
+    max-width: 1200px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+}
+
+.right {float: right !important;}
+/* Image zoom on hover + Overlay colour */
+.parent {
+    width: 45%;
+    margin: 20px;
+    height: 300px;
+    border: 1px solid blue;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.child {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+/* Several different images */
+.bg-one {background-image: url(https://media.timeout.com/images/101602611/image.jpg);
+  
+}
+.bg-two {background-image: url(http://s1.it.atcdn.net/wp-content/uploads/2015/08/2-London.jpg);
+  filter:blur(2px)
+}
+.bg-three {background-image: url( https://media.istockphoto.com/id/494781419/photo/manhattan-skyline-nyc.webp?b=1&s=170667a&w=0&k=20&c=y4zgRtBKca97ZwwC4b1VqmsRumzxlPTaKoPK1-B9NwQ=);}
+.bg-four {background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Hollywood_Sign.jpg/1280px-Hollywood_Sign.jpg);}
+.bg-five {background-image: url(https://media.istockphoto.com/id/1356118511/photo/smart-city-and-abstract-dot-point-connect-with-gradient-line.jpg?s=612x612&w=0&k=20&c=GJldTyxDEt0GodKxGONHz9PrN9QcQQAGKONUM0vBvYc=);}
+.bg-six {background-image: url(http://blog.whitepages.com/wp-content/uploads/2015/04/san-franc.jpg);} 
+a {
+    display: none;
+    font-size: 35px;
+    color: #ffffff !important;
+    font-family: sans-serif;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 50px;
+    cursor: pointer;
+}
+
+.parent:hover .child, .parent:focus .child {
+    -ms-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 3s;
+
+    /* (<HTMLInputElement>.document.qureySelecter(".pratiksha").style.border.) */
+}
+
+.parent:hover .child:before, .parent:focus .child:before {
+    display: block;
+}
+
+.parent:hover a, .parent:focus a {
+    display: block;
+}
+
+</style>
+<div class="parent right" onclick="">
+
+
+
+    <div class="child bg-two">
+      <a href="#">London</a>
+    </div>
+  </div>
+
+  <div class="parent" onclick="">
+    <div class="child bg-three">
+      <a href="#">New York</a>
+    </div>
+  </div>
+
+  <div class="parent right" onclick="">
+    <div class="child bg-four">
+      <a href="#">Hollywood</a>
+    </div>
+  </div>
+
+  <div class="parent" onclick="">
+    <div class="child bg-five">
+      <a href="#">Dubai</a>
+    </div>
+  </div>
+
+  <div class="parent right" onclick="">
+    <div class="child bg-six">
+      <a href="#">San Francisco</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>epoch_time</title>
+    <link rel="icon" href="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSQiwkMDBRJXnUt7UekL1AiZAA2l7hjYpUeNhZqhB0XnWYpwC46">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio&family=Monoton&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/33042e1aad.js" crossorigin="anonymous"></script>
+    <style>
+        *
+        {
+            box-sizing: border-box;
+        }
+        .epoch_converter
+        {
+            display: flex;
+        }
+        .watch_image
+        {
+            height: 80px;
+            width: 80px;
+            margin-right: 15px;
+        }
+        .timestamp_conversion_tools
+        {
+            color: brown;
+        }
+        .epoch_horizontal_line
+        {
+            width: 1910px;
+        }
+        .unix_epoch_time
+        {
+           text-decoration: none;
+        }
+        .epoch_time_button
+        {
+            width: 200px;
+            height: 50px;
+            background-color: rgb(174, 199, 221);
+            border: none;
+            border-radius: 10px;
+            background-image: linear-gradient(white,rgb(217, 217, 222));
+        }
+        #epoch-time
+        {
+            font-size: 20px;
+        }
+        .empty
+        {
+            height: 80px;
+            width: 100%;
+        }
+        .human-readable-date
+        {
+            color: rgb(86, 86, 250);
+            font-size: 30px;
+        }
+        .empty2
+        {
+            height: 10px;
+        }
+        .date-buttons
+        {
+            height: 35px;
+            width: 240px;
+            margin-right: 5px;
+            background-color: whitesmoke;
+            border: 1px solid grey;
+            font-size: 16px;
+            border-radius: 3px;
+        }
+        #timestamp
+        {
+            height: 40px;
+            width: 250px;
+            font-size: 20px;
+            border: 1px solid grey;
+            border-radius: 5px;
+        }
+        #convertBtn
+        {
+            height: 40px;
+            width: 250px;
+            font-size: 18px;
+            background-color: rgb(252, 235, 237);
+            border: 1px solid grey;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        .batch-convert
+        {
+            text-decoration: none;
+        }
+        .converter {
+    margin: 20px;
+}
+
+.input-container {
+    display: flex;
+    margin-bottom: 10px;
+ 
+}
+
+input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+}
+
+.btn {
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    border: 1px solid rgb(250, 240, 240);
+    background-color: rgb(244, 229, 234);
+    box-shadow: 0px 0px 4px grey;
+}
+
+
+.result {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.result p {
+    margin: 10px 0;
+}
+.input_contai1
+{
+    margin-right: 20px;
+    margin-left: 5px;
+}
+.input_contai2
+{
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.input_contai3
+{
+    margin-left: 12px;
+    margin-right: 20px;
+}
+.input_contai4  
+{
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.input_contai5
+{
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.input_contai6
+{
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.first
+{
+    background-color: rgb(245, 237, 237);
+    height: 30px;
+    width: 150px;
+}
+.texts 
+{
+    width: 40px;
+    box-shadow: 0px 0px 3px grey;
+    border: 1px solid rgb(183, 179, 179);
+}
+.texts1
+{
+    box-shadow: 0px 0px 3px grey;
+    border: 1px solid rgb(168, 162, 162);
+}
+.gmt-wid
+{
+    width: 100px;
+    height: 30px;
+    font-size: 17px;
+}
+
+#human-date-timestamp
+{
+    height: 30px;
+    
+}
+.emtpys
+{
+    height: 160px;
+    border: 1px solid black;
+    width: 800px;
+    margin-bottom: 20px;
+}
+#inputDate
+        {
+            height: 30px;
+            width: 400px;
+            font-size: 20px;
+        }
+        #convert-to-timestamp
+        {
+            height: 31px;
+            width: 200px;
+            font-size: 17px;
+            background-color: rgb(251, 250, 208);
+            border: 1px solid rgb(121, 116, 116);
+            border-radius: 4px;
+          
+        }
+        .batch-con
+        {
+            margin-left: 10px;
+            text-decoration: none;
+        }
+        .container {
+  width: 100%;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+#result {
+  margin-top: 10px;
+
+}
+#epochInput
+{
+    width: 250px;
+    font-size: 20px;
+    height: 39px;
+}
+#convertButton
+{
+    width: 250px;
+    height: 40px;
+    margin-top: 9px;
+    margin-left: 5px;
+    font-size: 15px;
+}
+.time
+{
+    display: flex;
+}
+#human-date-output
+{
+    width: 200px;
+    height: 10px;
+    border: none;
+    font-size: 17px;
+}
+#human-date-output 
+{
+    margin-top: 0px;
+}
+#time-zone
+{
+    margin-top: 0px;
+}
+    </style>
+</head>
+<body>
+    <div class="epoch_converter">
+        <img class="watch_image" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSQiwkMDBRJXnUt7UekL1AiZAA2l7hjYpUeNhZqhB0XnWYpwC46" alt="">
+        <h1>Epoch Converter</h1>
+    </div>
+
+    <h1 class="timestamp_conversion_tools" >Epoch & Unix Timestamp Conversion Tools</h1>
+    <hr class="epoch_horizontal_line"/>
+
+    <div class="empty"></div>
+
+    <!-- epoch time -->
+
+    <div class="epoch_div">The current <a class="unix_epoch_time" href="https://www.epochconverter.com/clock">Unix epoch time</a> is  <button class="epoch_time_button"><p id="epoch-time"></button></p></div>
+   
+    <div class="empty2"></div>
+
+    <!-- converte epoch to human-readable date and vice versa -->
+
+    
+    <div class="container">
+
+        <div class="time">
+            <input type="text" id="epochInput" value="1699428269">
+            <button id="convertButton">Timestamp to Human date</button>
+        </div>
+        <p>Supports Unix timestamps in seconds, milliseconds, microseconds and nanoseconds.</p>
+        <p id="secondss">Assuming that this timestamp is in <b>seconds:</b></p>
+    
+        <p id="result"><b>GMT</b></p>
+        <label for="human-date-output" id="time-zone"><b>your time zone</b></label>
+        <input type="text" id="human-date-output">
+      </div>
+
+    <!-- human date to timestamp converter -->
+
+    <h1>Human Date to Timestamp Converter</h1>
+                
+             <div class="converter">
+            <div class="input-container">
+            <div class="input_contai1"><label for="year">Yr</label></div> 
+            <div class="input_contai2"><label for="month">Mon</label></div>
+            <div class="input_contai3"><label for="day">Day</label></div>
+            <div class="input_contai4"><label for="hour">Hr</label></div>
+            <div class="input_contai5"><label for="minute">Min</label></div>
+            <div class="input_contai6"><label for="second">Sec</label></div>
+            
+           
+        </div>
+        <div class="input_container2">
+            <input type="text" class="texts1" id="year" value="2023" /> -
+            <input type="text" class="texts" id="month" value="10" /> -
+            <input type="text" class="texts" id="day" value="30" />  
+            <input type="text" class="texts" id="hour" value="12" /> :
+            <input type="text" class="texts" id="minute" value="48" /> :
+            <input type="text" class="texts" id="second" value="30" />
+
+
+            <select name="" id="first"  class="gmt-wid">
+            <option value="" class="gmt">GMT</option>
+            <option value="" class="gmt">Local time</option>
+            </select>            
+
+            <button class="btn" id="human-date-timestamp" onclick="convertToDate()">Human date to Timestamp</button>
+        <div class="result">
+            <p><b>Epoch timestamp: </b><span id="timestamp1"></span></p>
+            <p>Timestamp in milliseconds: <span id="timestampMillis"></span></p>
+            <p><b>Date and time (GMT): </b><span id="dateTimeGMT"></span></p>
+            <p>Date and time (your time zone): <span id="dateTimeLocal"></span></p>
+        </div>
+
+        </div>
+        
+    </div>
+
+    <div class="emtpys"></div>
+
+                                <!-- Convert to timestamp -->
+
+    <input type="text" id="inputDate" value="Thu, 15 Oct 2023 05:55:26 GMT"></input>
+    <button id="convert-to-timestamp" onclick="convertToTimestamp()">Convert to Timestamp</button><a class="batch-con" href="https://www.epochconverter.com/batch#h2e">[batch convert]</a>
+    <p>Input format: RFC 2822, D-M-Y, M/D/Y, Y-M-D, etc. Strip 'GMT' to convert to local time.</p>
+    <p><b>Epoch timestamp:</b><span id="timestampResult1"></span></p>
+    <p>Timestamp in milliseconds: <span  id="millisecondss"></span></p>   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+ ///////////////////////////////////////  epoch time/////////////////////////////////////////////////////////////////
+
+   function updateEpochTime() {
+    var epochTimeElement = document.getElementById('epoch-time');
+    var currentEpochTime = Math.floor(new Date().getTime() / 1000);
+    epochTimeElement.textContent = currentEpochTime;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateEpochTime();
+    setInterval(updateEpochTime, 1000); // Update every second
+});
+
+
+///////////////timestamp to human date//////////
+
+document.addEventListener('DOMContentLoaded', function() {
+  const epochInput = document.getElementById('epochInput');
+  const convertButton = document.getElementById('convertButton');
+  const result = document.getElementById('result');
+  const humanDateOutput = document.getElementById('human-date-output');
+ 
+  convertButton.addEventListener('click', function() {
+    const epochValue = parseInt(epochInput.value, 10);
+    if (!isNaN(epochValue)) {
+      const date = new Date(epochValue * 1000); // Convert seconds to milliseconds
+      const dateString = date.toGMTString();
+      result.textContent = `GMT: ${dateString}`;
+      
+    } 
+    else  if (isNaN(epochValue)) {
+        alert('Please enter a valid epoch timestamp.');
+        return;
+      }
+    else {
+      result.textContent = 'Invalid input. Please enter a valid epoch timestamp.';
+    }
+    const humanReadableDate = convertEpochToHumanDate(epochValue);
+      humanDateOutput.value = humanReadableDate;
+  });
+  function convertEpochToHumanDate(epochTimestamp) {
+      const date = new Date(epochTimestamp * 1000);
+      const options = {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        secondss: 'numeric',
+      };
+      return date.toLocaleDateString('en', options);
+    }
+});
+
+
+// Get the timestamp
+const timestamp = 1697631998 * 1000; // Convert to milliseconds
+
+// Convert the timestamp to a Date object
+const date = new Date(timestamp);
+
+// Display the date in different formats
+document.getElementById('gmtTime').textContent = date.toGMTString();
+document.getElementById('localTime').textContent = date.toLocaleString();
+
+// Calculate the relative time
+const now = new Date();
+const diffInSeconds = Math.floor((now - date) / 1000);
+const minutesAgo = Math.floor(diffInSeconds / 60);
+document.getElementById('relativeTime').textContent = minutesAgo + " minutes ago";
+
+    ////////////////// Human date to timestamp converter//////////////////////////////////////////////
+
+ document.getElementById("convertBtn").addEventListener("click", function() {
+            const timestamp = parseInt(document.getElementById("timestamp1").value, 10);
+            if (!isNaN(timestamp)) {
+                const date = new Date(timestamp * 1000);
+                const options = {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                    timeZoneName: "short"
+                };
+                const localDate = date.toLocaleDateString(undefined, options);
+                document.getElementById("results").innerHTML =`Assuming that this timestamp is in <b> seconds: </b> `;
+                document.getElementById("result").innerHTML = `<b> GMT : </b> ${localDate}`;
+                document.getElementById("result1").innerHTML = `<b> Your time zone: </b> ${localDate}`;
+                document.getElementById('result2').innerHTML = `minutesAgo + " minutes ago"${localDate}`;
+                const now = new Date();
+                const diffInSeconds = Math.floor((now - date) / 1000);
+                const minutesAgo = Math.floor(diffInSeconds / 60);
+                document.getElementById('relativeTime').textContent = minutesAgo + " minutes ago";
+
+            } else {
+                document.getElementById("result").textContent = "Please enter a valid timestamp.";
+                
+            }
+            
+        });
+
+
+
+        function convertToDate() {
+    const year = document.getElementById("year").value;
+    const month = document.getElementById("month").value;
+    const day = document.getElementById("day").value;
+    const hour = document.getElementById("hour").value;
+    const minute = document.getElementById("minute").value;
+    const second = document.getElementById("second").value;
+
+    // Convert the date components to a GMT timestamp
+    const dateGMT = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}Z`);
+    const timestamp = dateGMT.getTime() / 1000; // Convert to seconds
+
+    // Display the results
+    
+    document.getElementById("timestamp1").textContent = timestamp;
+    document.getElementById("timestampMillis").textContent = timestamp * 1000;
+    document.getElementById("dateTimeGMT").textContent = dateGMT.toUTCString();
+    document.getElementById("dateTimeLocal").textContent = dateGMT.toLocaleString();
+}
+
+ //////////////////////////////////// convert to timestamp//////////////////////////////////
+
+ 
+            function convertToTimestamp() {
+            const inputDate = document.getElementById('inputDate').value;
+            const timestampResult = document.getElementById('timestampResult1');
+            const millisecondss = document.getElementById('millisecondss');
+            const datetimeGMT = document.getElementById('datetimeGMT');
+            const datetimeLocal = document.getElementById('datetimeLocal');
+
+            const date = new Date(inputDate);
+
+            if (!isNaN(date)) {
+                
+                timestampResult.textContent = date.getTime()/1000;
+                
+                millisecondss.textContent = date.getTime()*100/100;
+               
+                datetimeGMT.textContent = date.toUTCString();
+                
+                datetimeLocal.textContent = date.toLocaleString();
+            } else {
+                timestampResult.textContent = "Invalid date format";
+                
+                datetimeGMT.textContent = "";
+                
+                datetimeLocal.textContent = "";
+            }
+        }
+
+
+        
+    </script>
+
+</body>
+
+</html>

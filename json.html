@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .output-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .output-table {
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .output-table, .output-table th, .output-table td {
+      border: 1px solid black;
+    }
+
+    .output-table th, .output-table td {
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+  <title>Date and Time Output</title>
+</head>
+<body>
+
+  <h2>Date and Time Output</h2>
+
+  <div class="output-container">
+    <table class="output-table">
+      <tr>
+        <th>Yr</th>
+        <th>Mon</th>
+        <th>Day</th>
+      </tr>
+      <tr>
+        <td>2024</td>
+        <td>-</td>
+        <td>1</td>
+        <td>-</td>
+        <td>20</td>
+      </tr>
+    </table>
+
+    <table class="output-table">
+      <tr>
+        <th>Hr</th>
+        <th>Min</th>
+        <th>Sec</th>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>:</td>
+        <td>53</td>
+        <td>:</td>
+        <td>48</td>
+      </tr>
+    </table>
+
+    <div>AM</div>
+    <div>GMT</div>
+  </div>
+
+  <div class="output-container">
+    <div>Human date to Timestamp</div>
+    <div>Epoch timestamp: <span id="epoch-timestamp"></span></div>
+    <div>Timestamp in milliseconds: <span id="timestamp-milliseconds"></span></div>
+    <div>Date and time (GMT): <span id="date-gmt"></span></div>
+    <div>Date and time (your time zone): <span id="date-local"></span></div>
+  </div>
+
+  <script>
+    // Input date and time values
+    const year = 2024;
+    const month = 1; // Note: Months are zero-based (0 is January, 1 is February, etc.)
+    const day = 20;
+    const hours = 7;
+    const minutes = 53;
+    const seconds = 48;
+
+    // Create a new Date object with the specified values
+    const dateObject = new Date(year, month - 1, day, hours, minutes, seconds);
+
+    // Update HTML content with formatted values
+    document.getElementById('epoch-timestamp').textContent = Math.floor(dateObject.getTime() / 1000);
+    document.getElementById('timestamp-milliseconds').textContent = dateObject.getTime();
+    document.getElementById('date-gmt').textContent = dateObject.toUTCString();
+    document.getElementById('date-local').textContent = dateObject.toLocaleString();
+  </script>
+
+</body>
+</html>

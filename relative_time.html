@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Timestamp Converter</title>
+</head>
+<body>
+    <h1>Timestamp to Human Date Converter</h1>
+    
+    <p><input type="text" value="169763125"></p>
+    
+    <p>GMT: <span id="gmtTime"></span></p>
+    <p>Your time zone: <span id="localTime"></span></p>
+    <p>Relative: <span id="relativeTime"></span></p>
+
+    <script>
+        // Get the timestamp
+        const timestamp = 1697631998 * 1000; // Convert to milliseconds
+
+        // Convert the timestamp to a Date object
+        const date = new Date(timestamp);
+
+        // Display the date in different formats
+        document.getElementById('gmtTime').textContent = date.toGMTString();
+        document.getElementById('localTime').textContent = date.toLocaleString();
+        
+        // Calculate the relative time
+        const now = new Date();
+        const diffInSeconds = Math.floor((now - date) / 1000);
+        const minutesAgo = Math.floor(diffInSeconds / 60);
+        document.getElementById('relativeTime').textContent = minutesAgo + " minutes ago";
+    </script>
+</body>
+</html>

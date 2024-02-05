@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Epoch Timestamp Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Epoch Timestamp Converter</h1>
+
+    <div>
+        <label for="year">Year:</label>
+        <input type="number" id="year" min="1970" max="2100" value="2023">
+        <label for="month">Month:</label>
+        <input type="number" id="month" min="1" max="12" value="10">
+        <label for="day">Day:</label>
+        <input type="number" id="day" min="1" max="31" value="19">
+        <button onclick="convertToEpoch()">Convert</button>
+    </div>
+
+    <div>
+        <h2>Epoch Dates</h2>
+        <p>Start of day: <span id="startOfDay"></span></p>
+        <p>End of day: <span id="endOfDay"></span></p>
+    </div>
+
+    <script>
+        function convertToEpoch() {
+            const year = parseInt(document.getElementById("year").value);
+            const month = parseInt(document.getElementById("month").value);
+            const day = parseInt(document.getElementById("day").value);
+
+            const startOfDay = new Date(year, month - 1, day, 0, 0, 0, 0).getTime() / 1000;
+            const endOfDay = new Date(year, month - 1, day, 23, 59, 59, 999).getTime() / 1000;
+
+            document.getElementById("startOfDay").textContent = new Date(startOfDay * 1000).toUTCString();
+            document.getElementById("endOfDay").textContent = new Date(endOfDay * 1000).toUTCString();
+        }
+    </script>
+</body>
+</html>
+.con{
+    display: flex;
+}
+#dateInput
+{
+    width: 370px;
+    height: 30px;
+    font-size: 18px;
+}
+#date-to-timestamp
+{
+    width: 200px;
+    height: 36px;
+   font-size: 15px;
+  margin-left: 5px;
+  background-color: blanchedalmond;
+    border: 1px solid rgb(187, 175, 175);
+}
+#dateInput
+{
+    width: 50px;
+    margin: 2px;
+    text-align: center;
+    box-shadow: 1px 2px 1px grey;
+    border: 1px solid rgb(174, 169, 169);
+}
+#dateInput2
+{
+    width: 40px;
+    margin: 2px;
+    height: 30px;
+    font-size: 16px;
+    box-shadow: 1px 2px 1px grey;
+    border: 1px solid rgb(174, 169, 169);
+}
+.year-line
+{
+    display: flex;
+}
+.year-line{
+    margin-right: 20px;
+}
+.yr{
+    width: 60px;
+    border: none;
+}
+.mon
+{
+    width: 50px;
+    margin: 3px;
+    border: none;
+}
+.day
+{
+    width: 50px;
+    font-size: 15px;
+    border: none;
+}
+.hr
+{
+    width: 50px;
+    font-size: 15px;
+    border: none;
+
+}
+.min
+{
+    width: 50px;
+    font-size: 15px;
+    border: none;
+}
+.sec
+{
+    width: 50px;
+    font-size: 15px;
+    border: none;
+
+}
+.con{
+    display: flex;
+}
+#dateInput1
+{
+    width: 370px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px grey;
+    border: 1px solid rgb(174, 169, 169);
+}
+#date-to-timestamp1
+{
+    border-radius: 2px;
+    height: 36px;
+    font-size: 15px;
+    margin-left: 5px;
+    background-color: blanchedalmond;
+    border: 1px solid rgb(160, 155, 155);
+    box-shadow: 1px 2px 1px rgb(248, 236, 217);
+}
+.converter
+{
+    margin-left: 50px;
+}
+.one-day
+{
+    margin-left: 50px;
+}
+

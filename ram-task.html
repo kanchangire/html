@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider
+        {
+            margin: 50px auto;
+            width: 50%;
+        }
+        .image-box img{
+            width: 100%;
+        }
+        .btn{
+            border: none;
+            outline: none;
+            background: grey;
+            padding: 10px 30px ;
+            font-size: 20px;
+            color: red;
+            cursor: pointer;
+            margin: 10px auto;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="image-box">
+            <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+        </div>
+        <button class="btn" onclick="prev()">prev</button>
+        <button class="btn" onclick="next()">next</button>
+    </div>
+    <script>
+        var slider_img= document.querySelector('.img_slider')
+        var images=[
+            // 'https://hips.hearstapps.com/hmg-prod/images/close-up-of-blossoming-rose-flower-royalty-free-image-1580853844.jpg?crop=0.668xw:1.00xh;0.248xw,0&resize=980:*',
+            // 'https://cdn.pixabay.com/photo/2013/07/21/13/00/rose-165819_640.jpg',
+            // 'https://img.freepik.com/free-photo/purple-osteospermum-daisy-flower_1373-16.jpg',
+            // 'https://clipart-library.com/images/pcqra6XXi.jpg',
+            // 'https://hips.hearstapps.com/hmg-prod/images/types-of-flowers-for-garden-black-eyed-susans-1674848363.jpeg'
+            'ganesh.png', 'ganpati.jpg'
+        ]
+        function prev(){
+            if(i<=0)i=images.length;
+            i++;
+            return setImg();
+
+        }
+
+        function next(){
+            if(i>=images.length-1) i= -1;
+                i--;
+                return setImg();
+
+        }
+        function setImg(){
+            return slider_img.setAttribute('src','images/' + images[i]);
+        }
+    </script>
+</body>
+</html>

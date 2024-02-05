@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <!-- <h2> Get a timestamp in JavaScript. </h2>
+  <h4>Number of years between the 01 / 23 / 1990 and current date. </h4>
+  <div id="timestamp1"> </div>
+  <h4>Difference in weeks</h4>
+  <div id="timestamp2"> </div>
+  <h4> Difference in days</h4>
+  <div id="timestamp3"> </div>
+  <script>
+     let timestamp1 = document.getElementById("timestamp1");
+     let timestamp2 = document.getElementById("timestamp2");
+     let timestamp3 = document.getElementById("timestamp3");
+     let startDate = new Date("01/23/1990");
+     let diff = Date.now() - startDate.getTime();
+     let day = 1000 * 60 * 60 * 24; // milliseconds of 1 day
+     timestamp3.innerHTML = Math.floor(diff / day);
+     let week = 7 * day // 7 days is equal to one week.
+     timestamp2.innerHTML = Math.floor(diff / week);
+     let year = 365 * day; // year has 365 days
+     timestamp1.innerHTML = Math.floor(diff / year);
+  </script> -->
+  <p>Relative: <span id="relativeTime"></span></p>
+
+  <script>
+    document.getElementById('relativeTime').textContent = minutesAgo + " minutes ago";
+
+  </script>
+</body>
+</html>

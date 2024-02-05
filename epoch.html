@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Date and Timestamp</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.date-container {
+  text-align: center;
+}
+
+  </style>
+</head>
+<body>
+  <div class="date-container">
+    <p id="current-date"></p>
+    <p id="timestamp"></p>
+  </div>
+  <script>
+    // Get current date and time
+const currentDate    = new Date();
+const timestamp = Date.now();
+
+// Display current date
+const currentDateElement = document.getElementById('current-date');
+currentDateElement.textContent = `Current Date: ${currentDate.toDateString()}`;
+
+// Display timestamp
+const timestampElement = document.getElementById('timestamp');
+timestampElement.textContent = `Timestamp: ${timestamp}`;
+
+  </script>
+</body>
+</html>

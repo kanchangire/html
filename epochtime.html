@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Epoch to Unix Timestamp Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Epoch to Unix Timestamp Converter</h1>
+    <div>
+        <label for="epochInput">Epoch Timestamp:</label>
+        <input type="text" id="epochInput" placeholder="Enter Epoch Timestamp">
+        <button onclick="convertEpochToUnix()">Convert</button>
+        <p>Unix Timestamp: <span id="unixTimestampResult"></span></p>
+    </div>
+    
+    <h1>Unix Timestamp to Epoch Converter</h1>
+    <div>
+        <label for="unixInput">Unix Timestamp:</label>
+        <input type="text" id="unixInput" placeholder="Enter Unix Timestamp">
+        <button onclick="convertUnixToEpoch()">Convert</button>
+        <p>Epoch Timestamp: <span id="epochTimestampResult"></span></p>
+    </div>
+
+    <script>
+        function convertEpochToUnix() {
+            const epochInput = document.getElementById("epochInput");
+            const unixTimestampResult = document.getElementById("unixTimestampResult");
+            const epochTime = parseInt(epochInput.value);
+            const unixTimestamp = new Date(epochTime * 1000).toLocaleString();
+            unixTimestampResult.textContent = unixTimestamp;
+        }
+
+        function convertUnixToEpoch() {
+            const unixInput = document.getElementById("unixInput");
+            const epochTimestampResult = document.getElementById("epochTimestampResult");
+            const unixTime = unixInput.value;
+            const epochTimestamp = Math.floor(new Date(unixTime).getTime() / 1000);
+            epochTimestampResult.textContent = epochTimestamp;
+        }
+    </script>
+</body>
+</html>

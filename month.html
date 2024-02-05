@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Start & End Dates of a Month</title>
+  <style>
+    /* Your CSS styles here */
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Start & End Dates of a Month</h1>
+  
+    <input type="number" id="yearInput">
+    
+    <input type="number" id="monthInput" min="1" max="12">
+    
+    <button onclick="showDates()">Show Dates</button>
+  
+    <div id="output"></div>
+  </div>
+  
+
+  <script>
+    function showDates() {
+      const year = document.getElementById('yearInput').value;
+      const month = document.getElementById('monthInput').value;
+
+      const startDate = new Date(year,      month);
+      const endDate = new Date(year, month);
+
+      const startMonthFormatted = formatDate(startDate);
+      const endMonthFormatted = formatDate(endDate);
+
+      const output = document.getElementById('output');
+      output.innerHTML = `
+        <h3>Start & End Dates of ${getMonthName(month)}, ${year}</h3>
+        <p>Start of month: ${startMonthFormatted}</p>
+        <p>End of month: ${endMonthFormatted}</p>
+      `;
+    }
+
+    function formatDate(date) {
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        timeZone: 'UTC' // Adjust the timezone as needed
+      };
+
+      return date.toLocaleString('en-US', options);
+    }
+
+    function getMonthName(monthIndex) {
+      const months = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+      ];
+      return months[monthIndex - 1];
+    }
+  </script>
+</body>
+</html>

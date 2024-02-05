@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Epoch Date Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            margin: 20px;
+        }
+        #result {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Epoch Dates for the Start and End of Year/Month/Day</h1>
+        <form>
+            <label for="year">Year:</label>
+            <input type="number" id="year" min="1970">
+            <label for="month">Month:</label>
+            <input type="number" id="month" min="1" max="12">
+            <label for="day">Day:</label>
+            <input type="number" id="day" min="1" max="31">
+            <button onclick="calculateEpoch()">Calculate</button>
+        </form>
+        <div id="result">
+            <p>Start of day: <span id="startOfDayEpoch"></span></p>
+            <p>End of day: <span id="endOfDayEpoch"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function calculateEpoch() {
+            const year = parseInt(document.getElementById('year').value);
+            const month = parseInt(document.getElementById('month').value) - 1; // Month is zero-based in JavaScript
+            const day = parseInt(document.getElementById('day').value);
+
+            if (!isNaN(year) && !isNaN(month) && !isNaN(day)) {
+                const startOfDayEpoch = new Date(year, month, day, 0, 0, 0, 0).getTime() / 1000;
+                const endOfDayEpoch = new Date(year, month, day, 23, 59, 59, 999).getTime() / 1000;
+
+                document.getElementById('startOfDayEpoch').textContent = startOfDayEpoch;
+                document.getElementById('endOfDayEpoch').textContent = endOfDayEpoch;
+            }
+        }
+    </script>
+</body>
+</html>

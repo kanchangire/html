@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Zoom</title>
+  <style>
+    .image-container {
+      width: 500px; 
+      margin: auto; 
+      overflow: hidden; 
+      cursor: zoom-in;
+    }
+
+ 
+    .zoomed-image{
+      width: 100%; 
+      
+    }
+    .zoomed-image:hover{
+      max-zoom: ;
+    }
+   
+  </style>
+</head>
+<body>
+
+<div class="image-container" onclick="zoomImage()">
+  <img id="zoomImg" src="https://w0.peakpx.com/wallpaper/682/728/HD-wallpaper-ganpati-bappa-ganesh.jpg" alt="Zoomable Image" class="zoomed-image">
+</div>
+
+<script>
+  
+  let zoomed = false;
+
+  function zoomImage() {
+    const img = document.getElementById('zoomImg');
+
+    if (zoomed) {
+      img.style.transform = 'scale(1)';
+      img.style.cursor = 'zoom-in';
+    } else {
+      img.style.transform = 'scale(2)'; 
+      img.style.cursor = 'zoom-out';
+    }
+
+    zoomed = !zoomed;
+  }
+</script>
+
+</body>
+</html>
