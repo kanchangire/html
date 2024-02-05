@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Convert Seconds</title>
+  <style>
+   .convert-second
+   {
+    color: rgb(19, 19, 72);
+    font-size: 30px;
+    
+   }
+   #secondsInput
+   {
+    height: 28px;
+    font-size: 20px;
+    border-radius: 3px;
+    width: 200px;
+    border: 1px solid rgb(201, 193, 193);
+
+   }
+   #days-minute
+   {
+    width: 300px;
+    height: 32px;
+    font-size: 18px;
+    border-radius: 3px;
+    background-color: blanchedalmond;
+    border: 1px solid rgb(201, 193, 193);
+
+   }
+  </style>
+</head>
+<body>
+    <p class="convert-second">Convert seconds to days, hours and minutes</p>
+
+    <div>
+      <input type="text" id="secondsInput" value="90061">
+      <button onclick="convertSeconds()" id="days-minute">Seconds to days,hours,minutes</button>
+    </div>
+
+    <div>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      function convertSeconds() {
+        const seconds = parseInt(document.getElementById('secondsInput').value);
+
+      const days = Math.floor(seconds / (24 * 60 * 60));
+      const hours = Math.floor((seconds % (24 * 60 * 60)) / (60 * 60));
+      const minutes = Math.floor((seconds % (60 * 60)) / 60);
+      const remainingSeconds = seconds % 60;
+
+      const resultText = `${days} days, ${hours} hours, ${minutes} minutes, and ${remainingSeconds} seconds.`;
+
+      document.getElementById('result').innerText = resultText;
+    }
+  </script>
+</body>
+</html>

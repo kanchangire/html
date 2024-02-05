@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Epoch Dates Display</title>
+  <style>
+
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+input[type="number"],
+button {
+  padding: 6px 10px;
+  margin: 0 5px;
+}
+
+button {
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.output-container {
+  text-align: left;
+}
+table
+{
+  border-collapse: collapse;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container1">
+    <div class="input-container">
+      <label for="yearInput">Year:</label>
+      <input type="number" id="yearInput" min="1970" max="2100" value="2023">
+      <button onclick="calculateEpoch()">Show Epoch Dates</button>
+    </div>
+    <div class="output-container">
+      <table border="1">
+        <tr>
+     <td><p id="startOfYear"></p></td>
+    </tr>
+    <tr>
+      <td><p id="endOfYear"></p></td>
+    </tr>
+    </table>
+    </div>
+  </div>
+  
+  <script>
+    function calculateEpoch() {
+  const year = document.getElementById('yearInput').value;
+
+  const startOfYear = new Date(Date.UTC(year, 0, 1, 0, 0, 0));
+  const endOfYear = new Date(Date.UTC(year, 11, 31, 23, 59, 59));
+
+  const startEpoch = startOfYear.getTime() / 1000;
+  const endEpoch = endOfYear.getTime() / 1000;
+
+  const startDateFormatted = startOfYear.toUTCString();
+  const endDateFormatted = endOfYear.toUTCString();
+
+  document.getElementById('startOfYear').textContent = `Start of year:${startEpoch} ${startDateFormatted}`;
+  document.getElementById('endOfYear').textContent = `End of year: ${endEpoch} ${endDateFormatted}`;
+}
+
+  </script>
+</body>
+</html>

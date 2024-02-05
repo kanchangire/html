@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Epoch Dates Display</title>
+  <style>
+
+  .input-container {
+    margin-bottom: 20px;
+  }
+
+  input[type="number"],
+  button {
+    padding: 6px 10px;
+    margin: 0 5px;
+  }
+
+  button {
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .output-container {
+    text-align: left;
+  }
+  #yearInput, #dayInput
+  {
+    border: none;
+    width: 1px  ;
+  }
+  .blue
+  {
+    color: rgb(76, 76, 114);
+    font-size: 30px;
+  }
+  .final
+  {
+    display: flex;
+  }
+  table
+  {
+    border-collapse: collapse;
+  }
+  .convert
+  {
+    height: 33px;
+    width: 100px;
+    background-color: rgb(254, 244, 235);
+    color: black;
+    border: 1px solid grey;
+    
+  }
+  .show-start
+  {
+    margin-right: 20px;
+  }
+  .yearInput1{
+    width: 300px;
+  }
+  .tables{
+    width: 600px;
+  }
+  @media only screen and (max-width: 600px) {
+    .final {
+
+  display: flex; 
+  }
+
+  .input-container5
+  {
+    display: column;
+  }
+    
+  }
+
+  </style>
+</head>
+<body>
+<!-- ///////////////////////////////////////////////////////// -->
+<p class="blue">Epoch dates for the start and end of the year/month/day</p>
+<table>
+  <tr class="spacing">
+    <td><p class="show-start">Show start & end of</p></td>
+    
+    <td class="spacings"><input type="radio" name="readi" onclick="calculateEpoch1()">year &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="spacings"><input type="radio" name="readi"  onclick="calculateEpoch()">month &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="spacings"><input type="radio" name="readi" onclick="calculateEpoch2()">day</td>
+  </tr>
+</table> <br> <br>
+
+  <div class="container1">
+    <div class="final">
+    <div class="input-container">
+      <label for="yearInput">Yr</label>
+      <input type="number" id="yearInput1" min="1970" max="2100" value="2023">
+    </div>
+    
+    <div class="input-container" class="input-container">
+      <input type="number" id="yearInput" min="1970" max="2100">
+      <label for="month">Mon</label>
+      <input type="number" id="monthInput" min="1" max="12" value="11">
+      <input type="number" id="dayInput" min="1" max="31">
+    </div>
+    <div class="input-container">
+      
+      <input type="number" id="yearInput" min="1970" max="2100">
+      <label for="day">Day</label>
+      <input type="number" id="monthInput" min="1" max="12" value="11">
+      <input type="number" id="dayInput" min="1" max="31" value="29">
+    </div>
+   <div class="input-container">
+  <button onclick="calculateEpoch1()" class="convert">convert </button><br><br>
+
+   </div>
+  </div>
+
+
+
+    <div id="firstoutput">
+      <table class="tables">
+        <tr>
+     <td><p id="startOfYear"></p></td>
+    </tr>
+    <tr>
+      <td><p id="endOfYear"></p></td>
+    </tr>
+    </table>
+    </div>
+  </div>
+
+
+<!-- ////////////////////////////////////////////////////////////// -->
+
+
+  
+  <div  id="secondoutput">
+   
+    <div class="output-container">
+      <table class="tables">
+        <tr>
+          <td> <p id="startOfMonth"></p> </td>
+    </tr>
+    <tr>
+      <td><p id="endOfMonth"></p></td>
+
+    </tr>
+    </table>
+    </div>
+  </div>
+  
+
+  <!-- ///////////////////////////////////////////////////// -->
+
+
+
+  <div id="thirdoutput">
+    
+    <div class="output-container">
+      <table class="tables">
+        <tr>
+          <td> <p id="startOfDay"></p> </td>
+    </tr>
+    <tr>
+      <td><p id="endOfDay"></p></td>
+
+    </tr>
+    </table>
+    </div>
+  </div>
+  
+  <script>  
+  ///////////////////////////////////////////////////////////
+    function calculateEpoch1() {
+
+      document.getElementById("secondoutput").style.display="none";
+ document.getElementById("thirdoutput").style.display="none";
+ document.getElementById("firstoutput").style.display="block";
+
+  const year = document.getElementById('yearInput').value;
+
+  const startOfYear = new Date(Date.UTC(year, 0, 1, 0, 0, 0));
+  const endOfYear = new Date(Date.UTC(year, 11, 31, 23, 59, 59));
+
+  const startEpoch = startOfYear.getTime() / 1000;
+  const endEpoch = endOfYear.getTime() / 1000;
+
+  const startDateFormatted = startOfYear.toUTCString();
+  const endDateFormatted = endOfYear.toUTCString();
+
+  document.getElementById('startOfYear').textContent = `Start of year:${startEpoch} ${startDateFormatted}`;
+  document.getElementById('endOfYear').textContent = `End of year: ${endEpoch} ${endDateFormatted}`;
+}
+   
+  ////////////////////////////////////////
+    function calculateEpoch() {
+      document.getElementById("firstoutput").style.display="none";
+      document.getElementById("thirdoutput").style.display="none";
+ document.getElementById("secondoutput").style.display="block";
+
+
+
+  const year = document.getElementById('yearInput').value;
+  const month = document.getElementById('monthInput').value;
+  const day = document.getElementById('dayInput').value;
+
+  const startOfMonth = new Date(Date.UTC(year, month - 1, 1, 0, 0, 0));
+  const endOfMonth = new Date(Date.UTC(year, month, 0, 23, 59, 59));
+
+  const startEpoch = startOfMonth.getTime() / 1000;
+  const endEpoch = endOfMonth.getTime() / 1000;
+
+  const startDateFormatted = startOfMonth.toUTCString();
+  const endDateFormatted = endOfMonth.toUTCString();
+
+  document.getElementById('startOfMonth').textContent = `Start of month: ${startEpoch} ${startDateFormatted}`;
+  document.getElementById('endOfMonth').textContent = `End of month: ${endEpoch} ${endDateFormatted}`;
+}
+//////////////////////////////////////////////////////////
+function calculateEpoch2() {
+
+  document.getElementById("firstoutput").style.display="none";
+ document.getElementById("secondoutput").style.display="none";
+ document.getElementById("thirdoutput").style.display="block";
+
+
+  const year = document.getElementById('yearInput').value;
+  const month = document.getElementById('monthInput').value;
+  const day = document.getElementById('dayInput').value;
+
+  const startOfDay = new Date(Date.UTC(year, month - 1, day, 0, 0, 0));
+  const endOfDay = new Date(Date.UTC(year, month - 1, day, 23, 59, 59));
+
+  const startEpoch = startOfDay.getTime() / 1000;
+  const endEpoch = endOfDay.getTime() / 1000;
+
+  const startDateFormatted = startOfDay.toUTCString();
+  const endDateFormatted = endOfDay.toUTCString();
+ 
+  document.getElementById('startOfDay').textContent = `Start of day: ${startEpoch} ${startDateFormatted}`;
+  document.getElementById('endOfDay').textContent = `End of day: ${endEpoch} ${endDateFormatted}`;
+}
+
+
+  </script>
+</body>
+</html>

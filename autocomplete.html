@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+    </style>
+</head>
+<body>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Number</mat-label>
+          <input type="text"
+                 placeholder="Pick one"
+                 aria-label="Number"
+                 matInput
+                 [formControl]="myControl"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+
+      
+      <script>
+        // Define your options
+const options = ['One', 'Two', 'Three'];
+
+// Function to handle autocomplete
+function autocomplete(inp, arr) {
+  const currentFocus = -1;
+  inp.addEventListener('input', function(e) {
+    const val = this.value;
+    closeAllLists();
+    if (!val) { return false; }
+    const div = document.createElement('div');
+    div.setAttribute('id', this.id + 'autocomplete-list');
+    div.setAttribute('class', 'autocomplete-items');
+    this.parentNode.appendChild(div);
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].substr(0, val.length).toUpperCase() === val.toUpperCase()) {
+        const option = document.createElement('div');
+        option.innerHTML = `<strong>${arr[i].substr(0, val.length)}</strong>`;
+        option.innerHTML += arr[i].substr(val.length);
+        option.innerHTML += `<input type='hidden' value='${arr[i]}'>`;
+        option.addEventListener('click', function(e) {
+          inp.value = this.getElementsByTagName('input')[0].value;
+          closeAllLists();
+        });
+        div.appendChild(option);
+      }
+    }
+  });
+
+  function closeAllLists(elmnt) {
+    const x = document.getElementsByClassName('autocomplete-items');
+    for (let i = 0; i < x.length; i++) {
+      if (elmnt !== x[i] && elmnt !== inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  document.addEventListener('click', function(e) {
+    closeAllLists(e.target);
+  });
+}
+
+// Initialize autocomplete on the input field with id 'myInput'
+autocomplete(document.getElementById('myInput'), options);
+
+      </script>
+</body>
+</html>

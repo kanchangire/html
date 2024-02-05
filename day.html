@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Epoch Dates for Start and End of Day</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="number"] {
+      width: 50px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Epoch Dates for Start and End of Day</h1>
+    <div>
+      <label for="yearInput">Year:</label>
+      <input type="number" id="yearInput" placeholder="YYYY">
+    </div>
+    <div>
+      <label for="monthInput">Month:</label>
+      <input type="number" id="monthInput" placeholder="MM">
+    </div>
+    <div>
+      <label for="dayInput">Day:</label>
+      <input type="number" id="dayInput" placeholder="DD">
+    </div>
+    <button onclick="calculateEpoch()">Calculate Epoch</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateEpoch() {
+      const year = document.getElementById('yearInput').value;
+      const month = document.getElementById('monthInput').value;
+      const day = document.getElementById('dayInput').value;
+
+      const startDate = new Date(year, month - 1, day, 0, 0, 0); // Start of the day
+      const endDate = new Date(year, month - 1, day, 23, 59, 59); // End of the day
+
+      const startEpoch = Math.floor(startDate.getTime() / 1000);
+      const endEpoch = Math.floor(endDate.getTime() / 1000);
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `
+        <p>Start of day: ${startEpoch} - ${startDate.toLocaleString()}</p>
+        <p>End of day: ${endEpoch} - ${endDate.toLocaleString()}</p>
+      `;
+    }
+  </script>
+</body>
+</html>

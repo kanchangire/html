@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date Ranges</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+#result {
+    margin: 20px;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Date Ranges</h1>
+    <label for="dateInput">Enter a Date:</label>
+    <input type="date" id="dateInput">
+    <button onclick="calculateDateRanges()">Calculate</button>
+    <div id="result"></div>
+
+    <script>
+
+function calculateDateRanges() {
+    const inputDate = new Date(document.getElementById('dateInput').value);
+
+    // Start and end of year
+    const startOfYear = new Date(inputDate.getFullYear(), 0, 1);
+    const endOfYear = new Date(inputDate.getFullYear(), 11, 31);
+
+    // Start and end of month
+    const startOfMonth = new Date(inputDate.getFullYear(), inputDate.getMonth(), 1);
+    const endOfMonth = new Date(inputDate.getFullYear(), inputDate.getMonth() + 1, 0);
+
+    // Start and end of day
+    const startOfDay = new Date(inputDate.getFullYear(), inputDate.getMonth(), inputDate.getDate(), 0, 0, 0);
+    const endOfDay = new Date(inputDate.getFullYear(), inputDate.getMonth(), inputDate.getDate(), 23, 59, 59);
+
+    const resultElement = document.getElementById('result');
+    resultElement.innerHTML = `Start of Year: ${startOfYear.toLocaleDateString()}<br>
+                               End of Year: ${endOfYear.toLocaleDateString()}<br>
+                               Start of Month: ${startOfMonth.toLocaleDateString()}<br>
+                               End of Month: ${endOfMonth.toLocaleDateString()}<br>
+                               Start of Day: ${startOfDay.toLocaleString()}<br>
+                               End of Day: ${endOfDay.toLocaleString()}`;
+}
+
+    </script>
+</body>
+</html>

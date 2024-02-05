@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Character, Word, and Line Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Character, Word, and Line Counter</h1>
+    <div>
+        <label for="textInput">Enter Text:</label>
+        <textarea id="textInput" rows="10" cols="50" placeholder="Type or paste your text here..."></textarea>
+    </div>
+    <div>
+        <p>Character Count: <span id="charCount">0</span></p>
+        <p>Word Count: <span id="wordCount">0</span></p>
+        <p>Line Count: <span id="lineCount">0</span></p>
+    </div>
+
+    <script>
+        const textInput = document.getElementById("textInput");
+        const charCount = document.getElementById("charCount");
+        const wordCount = document.getElementById("wordCount");
+        const lineCount = document.getElementById("lineCount");
+
+        textInput.addEventListener("input", updateCounts);
+
+        function updateCounts() {
+            const text = textInput.value;
+            charCount.textContent = text.length;
+            
+            // To count words, we split the text by spaces and filter out empty strings
+            const words = text.split(/\s+/).filter(word => word.length > 0);
+            wordCount.textContent = words.length;
+            
+            // To count lines, we split the text by newline characters
+            const lines = text.split(/\n/).filter(line => line.trim() !== "");
+            lineCount.textContent = lines.length;
+        }
+    </script>
+</body>
+</html>

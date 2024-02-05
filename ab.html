@@ -1,0 +1,611 @@
+[6:49 PM] Shubham Kolekar
+<!doctype html>
+<html lang="en">
+ 
+{% load static %}
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <!--online font awesome stylesheet-->
+    <link rel="stylesheet" href="{% static 'symbi_student_portal_app/css/main.css' %}">
+ 
+    {% comment %} <link rel="stylesheet" href="css/style.css"> {% endcomment %}
+    <style>
+    .print-button button {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    font-size: 15px;
+    width: 100px;
+}
+ 
+ 
+ 
+.bg-coral{
+  background-color:  #C52F33;
+}
+.bg-dun{
+background-color: #FFF2E7;
+}
+.btn-modified{
+  background-color: #2A3D45;
+  border-color: #C52F33;
+     padding: 0.5rem 1rem;
+}
+.btn-modified:hover{
+  background-color: #2A3D45;
+  border-color: #C52F33;
+}
+.btn-modified:active{
+   background-color: #2A3D45 !important;
+     border-color: #C52F33 !important;
+}
+.btn-save-modified{
+  background-color: #2A3D45;
+  border-color: #C52F33;
+}
+.btn-save-modified:hover{
+  background-color: #2A3D45;
+  border-color: #C52F33;
+}
+.btn-save-modified:active{
+   background-color: #2A3D45 !important;
+     border-color: #C52F33 !important;
+}
+ 
+.padding-top-btm{
+  padding: 10px 0px;
+}
+.margin-btm-zero{
+  margin-bottom: 0;
+}
+ 
+.logo-style{
+    height: 91px;
+    object-fit: scale-down;
+    margin-right: 12px;
+}
+     .logo-wrapper{
+           text-align: center;
+           padding-top: 45px;
+           padding-bottom: 45px;
+           border-bottom: 1px solid #C5151D; height: 126px;
+    }
+      
+     .symbi-logo{
+          width: 865px;
+       
+     }
+ 
+  @media screen and (max-width:930px) {
+    .symbi-logo{
+        width: 458px;
+    object-fit: cover;
+}
+    .logo-wrapper{
+        padding-top: 34px;
+    /* padding-bottom: 45px; */
+    border-bottom: 1px solid #C5151D;
+    height: 86px;
+}
+ 
+.responsive-table{
+       display: block;
+       width: 100%;
+       height: 100%;
+       overflow: auto;
+}
+  }
+ 
+   @media screen and (max-width:600px) {
+    .logo-wrapper{
+       text-align: center;
+       padding-top: 24px;
+       padding-bottom: 45px;
+       height: 72px;
+}
+   .symbi-logo{
+       width: 350px;
+    object-fit: cover;
+}
+   }
+ 
+@media print{
+        body{
+            visibility:hidden;
+        }
+        .print-button button{
+            visibility:hidden;
+        }
+        .print{
+            height:100%;
+            width:100%;
+            color:#000;
+            border:0.7px solid #000;
+            visibility:visible;
+        }
+        .print .card-body .card-title{
+            border:0.7px solid #000;
+        }
+        .print h3{
+           color:#000;
+        }
+        .print h1{
+            color:#000;
+        }
+        .print h4{
+           color:#000;
+        }
+    }
+    </style>
+    <link rel="shortcut icon" type="image/png" href="{% static 'symbi_student_portal_app/images/symbiosisfavicon.png' %}"/>
+</head>
+ 
+ 
+<body>
+ 
+<div class="container" style="border:0.5 solid #000; margin-top:20px;">
+    <!-- <div class="logo-wrapper"> -->
+        <!-- <img  class="symbi-logo" src="images.png" alt="" srcset="" > -->
+     <!-- </div> -->
+ 
+        <div class="print">
+         <div class="card mb-5">
+            <div class="logo-wrapper">
+        <img  class="symbi-logo" src="images.png" alt="" srcset="" >
+    </div>
+            </div>
+
+            <div style="padding-top: 10px"></div>
+            <div class="card-body bg-dun">
+ 
+                    <div style="padding-top: 10px">
+
+                    </div>
+                    <div class="card-title text-center text-white bg-coral" style="background-color: #C52F33">
+                        <h3 class="padding-top-btm"> Registration Details</h3>
+                    </div>
+ 
+                    <div class="card-body">
+                    <div class="form-group row">
+ 
+                    {% if student.Student_id.Student_Photo %}
+                    <div class="form-group col-md-6">
+                   <center> <img src="{{student.Student_Photo.url}}"  width="200" height="200" style="border:0.5px solid #808080;" ></center>
+                    </div>
+                    {% endif %}
+                    {% if student.Student_id.Student_Signature %}
+                     <div class="form-group col-md-6">
+                    <center><img src="{{student.Student_Signature.url}}"  width="200" height="200"style="border:0.5px solid #808080;" ></center>
+                    </div>
+                    {% endif %}
+                    </div>
+                        <div class="row">
+                            <label for="email" class="col-sm-1 col-form-label"> Email</label>
+                           <input type="text" class="form-control col-sm-11" id="input_email" value="{{user.email}}" readonly>
+                        </div>
+                    </div>
+ 
+                    <div class="card-title text-center text-white bg-coral" >
+ 
+                        <h3 class="padding-top-btm"> Personal Information</h3>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="student_name">Student First Name</label>
+                            <input type="text" class="form-control" id="input_name" value="{{student.Student_First_Name}}" readonly>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="student_name">Student Middle Name</label>
+                            <input type="text" class="form-control" id="input_name" value="{{student.Student_Middle_Name}}" readonly>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="student_name">Student Last Name</label>
+                            <input type="text" class="form-control" id="input_name" value="{{student.Student_Last_Name}}" readonly>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="fathers_name">Father's Name(Full)</label>
+                            <input type="text" class="form-control" id="input_fathersnm" value="{{student.Student_Father_Name}}" readonly>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="mother's_name"> Mother's Name(Full)</label>
+                            <input type="text" class="form-control" id="input_mothersnm" value="{{student.Student_Mother_Name}}" readonly>
+                        </div>
+                    </div>
+ 
+                    <div class="form-row">
+ 
+                        <div class="form-group col-md-3">
+                            <label for="birth_date">Date Of Birth</label>
+                            <input type="text" class="form-control" id="input_date" value="{{student.Student_Date_of_Birth}}" readonly>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="gender"> Gender</label>
+                           <input type="text" class="form-control" id="input_gender" value="{{student.Student_Gender}}" readonly>
+ 
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="area">Area</label>
+                            <input type="text" class="form-control" id="input_area" value="{{student.Student_Area}}" readonly>
+ 
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="nation"> Nationality</label>
+                                <input type="text" class="form-control" id="input_nation" value="{{student.Student_Nationality}}" readonly>
+                        </div>
+ 
+                    </div>
+ 
+ 
+                    <div class="form-row">
+ 
+                        <div class="form-group col-md-3">
+                            <label for="marital_status">Marital Status</label>
+                             <input type="text" class="form-control" id="input_nation" value="{{student.Student_Marital_Status}}" readonly>
+ 
+ 
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="religion"> Religion</label>
+                            <input type="text" class="form-control" id="input_religion" value="{{student.Student_Religion}}" readonly>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="cast"> Caste</label>
+                            <input type="text" class="form-control" id="input_cast" value="{{student.Student_Cast}}" readonly>
+                        </div>
+ 
+                        <div class="form-group col-md-3">
+                            <label for="minority"> Minority</label>
+                            <input type="text" class="form-control" id="input_minority" value="{{student.Student_Minority}}" readonly>
+ 
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="category"> Category</label>
+                            <input type="text" class="form-control" id="input_categary" value="{{student.Student_Category}}" readonly>
+ 
+                        </div>
+ 
+                        <div class="form-group col-md-3">
+                            <label for="physically_challenged">Differently Abled</label>
+                            <input type="text" class="form-control" id="input_handicapped" value="{{student.Student_Physically_Handicapped}}" readonly>
+ 
+                        </div>
+ 
+                        <div class="form-group col-md-3">
+                            <label for="photo"> Photo</label>
+                            <!--<div class="custom-file">-->
+                                <input type="text" class="form-control" id="input_handicapped" value="{{student.Student_Photo}}" readonly>
+                                {% comment %} <input type="file" class="form-control" id="Student_Photo" name="Student_Photo" accept=".jpg" oninput="return checkFile();" >
+                                
+                                {% endcomment %}
+ 
+                                <!--<input type="file" class="form-control" id="Student_Photo" name="Student_Photo" accept="image/jpeg">-->
+                                <!--<label class="custom-file-label" for="customFile" id="slphoto" value="{{student.Student_Photo}}"></label>-->
+                            <!--</div>-->
+                        </div>
+ 
+                        <div class="form-group col-md-3">
+                            <label for="signature">Signature</label>
+                             <input type="text" class="form-control" id="input_handicapped" value="{{student.Student_Signature}}" readonly>
+                            {% comment %} <input type="file" class="form-control" id="Student_Signature" name="Student_Signature" accept=".jpg" oninput="return checkPhoto();" >
+                           
+                            {% endcomment %}
+ 
+                            <!--<div class="custom-file">-->
+                            <!--    <input type="file" class="form-control" id="Student_Signature" name="Student_Signature" accept="image/jpeg">-->
+                               <!-- <label class="custom-file-label" for="customFile" id="slsign"> Choose file for Sign</label>-->
+                            <!--</div>-->
+                        </div>
+ 
+ 
+                    </div>
+ 
+ 
+ 
+ 
+ 
+                    <div class="card-title text-center text-white bg-coral" >
+                        <h3 class="padding-top-btm">Address for Communication</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for="local_add">Address for Communication</label>
+                                <input type="text" class="form-control" name="Student_Local_Address" value="{{student.Student_Local_Address}}" readonly>
+ 
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="country">Country</label>
+                                <input type="text" class="form-control" name="Student_Local_Address" value="{{student.Student_Country}}" readonly>
+ 
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="taluka">Taluka</label>
+                                <input type="text" class="form-control" id="inputCity" value="{{student.Student_Local_Taluka}}" readonly>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="district">District/City</label>
+                                <input type="text" class="form-control" id="inputDistrict" value="{{student.Student_Local_District}}" readonly>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="inputState">State</label>
+                                <input type="text" class="form-control" id="input_state" value="{{student.Student_Local_State}}" readonly>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="inputPin">Zip</label>
+                                <input type="text" class="form-control" id="inputPin" value="{{student.Student_Local_Zip}}" readonly>
+                            </div>
+                        </div>
+                    </div>
+ 
+                    <div class="card-title text-center text-white bg-coral" >
+ 
+                        <h3 class="padding-top-btm"> Permanent Address</h3>
+                        {% comment %} <input type="checkbox" id="as_above" name="check1" onchange="copyTextValue(this);"> As Per Above {% endcomment %}
+ 
+                    </div>
+ 
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            <label for="local_add"> Permanent Address</label>
+                            <input type="text" class="form-control" id="input_padd" value="{{student.Student_Permanent_Address}}" readonly>
+ 
+                        </div>
+                        <div class="form-group col-md-4">
+                                <label for="country">Country</label>
+                                <input type="text" class="form-control" name="Student_Local_Address" value="{{student.Student_Permanent_Country}}" readonly>
+ 
+                            </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="taluka">Taluka</label>
+                            <input type="text" class="form-control" id="inputCity2" value="{{student.Student_Permanent_Taluka}}" readonly>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="district">District</label>
+                            <input type="text" class="form-control" id="inputDist2" value="{{student.Student_Permanent_District}}" readonly>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputState">State</label>
+                            <input type="text" class="form-control" id="input_state2" value="{{student.Student_Permanent_State}}" readonly>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputPin">Zip</label>
+                            <input type="text" class="form-control" id="inputPin2" value="{{student.Student_Permanent_Zip}}" readonly>
+                        </div>
+                    </div>
+ 
+ 
+                    <div class="card-title text-center text-white bg-coral" >
+ 
+                        <h3 class="padding-top-btm">Contact Information</h3>
+ 
+                    </div>
+                    <div class="form-row">
+ 
+                        <div class="form-group col-md-4">
+                            <label for="contact"> Contact(Landline)</label>
+                            <input type="text" class="form-control" id="input_contact" value="{{student.Student_Contact_Landline}}" readonly>
+                        </div>
+ 
+                        <div class="form-group col-md-4">
+                            <label for="mobile"> Mobile</label>
+                            <input type="text" class="form-control" id="input_mob" value="{{student.Student_Mobile_No}}" readonly>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="adhar"> Adhaar Number</label>
+                            <input type="text" class="form-control" id="input_adhar" value="{{student.Student_Adhaar_Number}}" readonly>
+                        </div>
+ 
+ 
+ 
+                    </div>
+ 
+                    <!-- <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="adm_center"> Admission Center</label>
+                            <select class="form-control" id="input_center">
+                                <option> --</option>
+ 
+                            </select>
+                        </div>
+ 
+                    </div>-->
+ 
+                    <div class="card-title text-center text-white bg-coral" >
+ 
+                        <h3 class="padding-top-btm">Admission Information</h3>
+ 
+                    </div>
+ 
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="adm_date"> Admission Date</label>
+                            <!--<input type="text" class="form-control" id="dateselect" placeholder="">-->
+                             <input type="text" class="form-control" id="input_adhar" value="{{student.Student_Admission_Date}}" readonly>
+ 
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="adm_date">Payment Type</label>
+                            <input type="text" class="form-control" id="input_adhar" value="{{student.Student_Payment_Method}}" readonly>
+ 
+ 
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="course"> Course/Program</label>
+                             <input type="text" class="form-control" id="input_adhar" value="{{student.Student_Course}}" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="course">Specialisation</label>
+                             <input type="text" class="form-control" id="input_adhar" value="{{student.Student_Specialisation}}" readonly>
+                        </div>
+                        <!-- <div class="form-group col-md-6">
+                            <label for="course">Specialisation </label>
+                             <input type="text" class="form-control" id="input_adhar" value="{{student.Student_Specialisation_2}}" readonly>
+                        </div> -->
+                    </div>
+                     {% if student_qul %}
+                     <div style="margin-top:20px;"></div>
+        <div class="card-title text-center text-white bg-coral" >
+            <h3 class="padding-top-btm">Qualification Details</h3>
+        </div>
+            
+        <table id="test_table" class="table table-bordered responsive-table" >
+            <thead>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Exam/Degree</th>
+                    <th>Name Of School</th>
+                    <th>University/Board</th>
+                    <th>Month-Year of Passing</th>
+                    <th>Total Marks</th>
+                    <th>Out of Marks</th>
+                    <th>Grade / Percentage / Credit Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in student_qul %}
+                <tr>
+                    <td>{{ forloop.counter}}</td>
+                    <td>{{ student.Exam_or_Degree }}</td>
+                    <td>{{ student.Name_of_School }}</td>
+                    <td>{{ student.University_or_Board }}</td>
+                    <td>{{ student.Month_and_Year }}</td>
+                    <td>{{ student.Total_Marks }}</td>
+                    <td>{{ student.Out_of_Marks }}</td>
+                    <td>{{ student.Grade }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+        {% if student_exp %}
+        <div style="margin-top:20px;"></div>
+        <div class="card-title text-center text-white bg-coral" >
+            <h3 class="padding-top-btm">Experience Details</h3>
+        </div>
+ 
+        <table id="test_table1" class="table table-bordered responsive-table">
+            <thead>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Organisation</th>
+                    <th>Designation</th>
+                    <th>Period From</th>
+                    <th>Period To</th>
+                    <th>Years</th>
+                    <th>Annual Income</th>
+                    <th>Functional Area</th>
+                    <th>Industry</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student1 in student_exp %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{ student1.Organisation }}</td>
+                    <td>{{ student1.Designation }}</td>
+                    <td>{{ student1.Period_From }}</td>
+                    <td>{{ student1.Period_To }}</td>
+                    <td>{{ student1.Years }}</td>
+                    <td>{{ student1.Annual_income }}</td>
+                    <td>{{student1.functional_area}}</td>
+                    <td>{{student1.industry}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+        {% if student_doc %}
+        <div style="margin-top:20px;"></div>
+        <div class="card-title text-center text-white bg-coral" >
+            <h3 class="padding-top-btm">Documents Attach</h3>
+        </div>
+        <table id="test_table2" class="table table-bordered responsive-table">
+            <thead>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Document Name</th>
+                    <th>Document</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student2 in student_doc %}
+                    {% if student2.Document %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{ student2.Document_Name }}</td>
+                        <td><a href="{{ student2.Document.url }}" target="_blank">{{ student2.Document }}</a></td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    {% endif %}
+         <div style="margin-top:20px;"></div>
+        <div class="card-title text-center text-white bg-coral">
+        <h3 class="padding-top-btm">Student Undertaking</h3>
+        </div>
+        <div class="form-row">
+        <ul>
+       <li>I hereby declare that the above information is true and complete to the best of my knowledge. I am aware that if any information
+ 
+        herein is found to be incorrect or incomplete false / incorrect / wrong, my application form will be rejected / at any stage of
+        
+        admission will cancelled. If admitted to SSODL, I shall abide by its rules and regulations. </li>
+      
+        </ul>
+        <br>
+        <br>
+        </div>
+ 
+           </div>
+    </div>
+ 
+<div class="print-button">
+<button type="button" class="btn btn-primary btn-md btn-save-modified" onclick="print()" id="print-btn"> Print</button>
+<!-- <button type="button" class="btn btn-primary btn-md btn-save-modified" onclick="printPage()" id="print-btn"> Print</button> -->
+</div>
+
+         <!-- <script>
+            function print() {
+                document.getElementsByClassName('symbi-logo')[0].style.display="block";
+            }
+        </script> -->
+
+ <script>
+    function printPage() {
+      // Create an image element
+    //   var img = new Image();
+    //   img.src = document.getElementById('myImage').src='images.png';
+    //   document.getElementsByClassName('symbi-logo')[0].style.display="block";
+    
+      // When the image is loaded, trigger printing
+    //   img.onload = function() {
+        // window.print();
+    //   };
+    }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+ 
+</html>
